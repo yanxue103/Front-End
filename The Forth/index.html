@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css"/>
+    <style>
+    header,section{
+        width: 1100px;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        height: 96px;
+    }
+    header{
+        z-index: 9;
+    }
+    section{
+        background-color: #f8f8f8;
+    }
+    header .logo{
+        position: absolute;
+        left: 0;
+        top: 7px;
+    }
+    .nav{
+        width: 810px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    .nav li{
+        width: 90px;
+        float: left;
+        position: relative;
+    }
+    .nav a{
+        display: block;
+        height: 96px;
+        text-align: center;
+        line-height: 96px;
+        font-size: 14px;
+        color: #1a1b18;
+        transition: all 0.3s linear;
+    }
+    .nav a:hover{
+        color: white;
+        background-color: red;
+    }
+    .nav li div{
+        width: 1130px;
+        height: 60px;
+        background-color: #5c3a3d;
+        position: absolute;
+        top: 96px;
+        left: 0;
+        display: none;
+    }
+    section .banner{
+        display: block;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        margin-bottom: 20px;
+    }
+    section .map{
+        width:1100px;
+        height: 555px;
+        overflow: auto;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="" class="logo">
+        <ul class="nav clearfix">
+            <li><a href="#">首页</a></li>
+            <li id="li1"><a href="#">首页</a><div id="div1"></div></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">首页</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="img/banner.jpg" alt="" class="banner"/>
+        <div class="map">
+            <img src="img/map.jpg" alt="">
+        </div>
+        <div class="news"></div>
+    </section>
+    <footer></footer>
+    <script>
+    var oLi = document.getElementById("li1");
+    var oDiv = document.getElementById("div1");
+    oLi.onmouseover = function (){
+        oDiv.style.display = "block";
+    }
+    oLi.onmouseout = function (){
+        oDiv.style.display = "none";
+    }
+    </script>
+</body>
+</html>
