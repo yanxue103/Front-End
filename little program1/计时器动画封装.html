@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 100px;
+    }
+    button{
+        width: 80px;
+        height: 30px;
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>右</button>
+    <button>左</button>
+    <button>下</button>
+    <button>上</button>
+    <script src="myjs.js"></script>
+    <script>
+    var aBtn = document.getElementsByTagName("button");
+    var oDiv = document.getElementsByTagName("div")[0];
+    aBtn[0].onclick = function (){
+        doMove(oDiv,6,700,"left");
+    }
+    aBtn[1].onclick = function (){
+        doMove(oDiv,6,0,"left");
+    }
+    aBtn[2].onclick = function (){
+        doMove(oDiv,6,600,"top");
+    }
+    aBtn[3].onclick = function (){
+        doMove(oDiv,6,100,"top");
+    }
+    oDiv.onclick = function (){
+        doMove(oDiv,0.01,0.3,"opacity");
+    }
+    function doMove(obj,step,end,attr){
+        step = parseFloat(getStyle(obj,attr))>end ? -step : step;
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function (){
+            var next = parseFloat(getStyle(obj,attr))+step;
+            next = step>0 ? Math.min(next,end) : Math.max(next,end);
+            obj.style[attr] = attr=="opacity" ? next : next+"px";
+            if(parseFloat(getStyle(obj,attr))==end){
+                clearInterval(obj.timer);
+            }
+        },30);
+    }
+    </script>
+</body>
+</html>

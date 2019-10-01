@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li{
+        width: 100px;
+        height: 100px;
+        float: left;
+        margin: 0 2px 2px 0;
+    }
+    </style>
+</head>
+<body>
+    <ul></ul>
+    <script>
+    //创建22li，颜色才下面数组中循环，鼠标移入时，li的背景变灰色，离开时恢复原色
+    var arr = ["red","black","blue","yellow","green"];
+    var oUl = document.getElementsByTagName("ul")[0];
+    var aLi = document.getElementsByTagName("li");
+    var str = "";
+    for(var i=0;i<22;i++){
+        str += "<li></li>";
+    }
+    oUl.innerHTML = str;
+    for(var i=0;i<aLi.length;i++){
+        // aLi[i].index = i;
+        aLi[i].style.backgroundColor = arr[i%5];
+        aLi[i].onmouseover = function (){
+            oUl.color = this.style.backgroundColor;
+            this.style.backgroundColor = "gray";
+        }
+        aLi[i].onmouseout = function (){
+            // this.style.backgroundColor = arr[this.index%5];
+            this.style.backgroundColor = oUl.color;
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    button{
+        width: 120px;
+        height: 40px;
+        font-size: 28px;
+    }
+    </style>
+</head>
+<body>
+    <button id="btn1">左</button><button id="btn2">右</button>
+    <br/>
+    <img src="img/1.png" width="390" height="480" id="img1"/>
+    <script>
+    var oBtn1 = document.getElementById("btn1");
+    var oBtn2 = document.getElementById("btn2");
+    var oImg1 = document.getElementById("img1");
+    // var i = 1;
+    // oBtn1.onclick = function (){
+    //     i == 1 ? i = 4 : i--;
+    //     oImg1.src = "img/"+i+".png";
+    // }
+    // oBtn2.onclick = function (){
+    //     i == 4 ? i = 1 : i++;
+    //     oImg1.src = "img/"+i+".png";
+    // }
+    var arr = ["1.png","2.png","3.png","4.png"];
+    var i = 0;
+    oBtn1.onclick = function (){
+        i == 0 ? i = 3 : i--;
+        oImg1.src = "img/"+arr[i];
+    }
+    oBtn2.onclick = function (){
+        i == 3 ? i = 0 : i++;
+        oImg1.src = "img/"+arr[i];
+    }
+    </script>
+</body>
+</html>

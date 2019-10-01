@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <ul></ul>
+    <script>
+    var arr = ["新闻一","新闻二","新闻三","新闻四","新闻五","新闻六","新闻七","新闻八","新闻九","新闻十","新闻十一","新闻十二","新闻十三","新闻十四","新闻十五","新闻十六","新闻十七","新闻十八"];
+    var oDiv = document.getElementsByTagName("div")[0];
+    var oUl = document.getElementsByTagName("ul")[0];
+    var aBtn = document.getElementsByTagName("button");
+    var str = "";
+    for(var i=0;i<Math.ceil(arr.length/5);i++){
+        str += "<button>第"+(i+1)+"页</button>";
+    }
+    oDiv.innerHTML = str;
+    createLi(0);
+    for(var i=0;i<aBtn.length;i++){
+        (function (i){
+            aBtn[i].onclick = function (){
+                createLi(i);
+            }
+        })(i);
+    }
+    function createLi(index){
+        var str = "";
+        for(var i=index*5;i<=index*5+4&&i<arr.length;i++){
+            str += "<li>"+arr[i]+"</li>";
+        }
+        oUl.innerHTML = str;
+    }
+    </script>
+</body>
+</html>

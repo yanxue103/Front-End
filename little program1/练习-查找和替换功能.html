@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>美国政府关门副总统却涨薪？彭斯回应：我不会接受","美国以倒卖军火为由逮捕一俄罗斯人 俄外交部:不是第一次了","新年伊始，“黄背心”重回法国街头。美国政府关门副总统却涨薪？彭斯回应：我不会接受","美国以倒卖军火为由逮捕一俄罗斯人 俄外交部:不是第一次了","新年伊始，“黄背心”重回法国街头。美国政府关门副总统却涨薪？彭斯回应：我不会接受","美国以倒卖军火为由逮捕一俄罗斯人 俄外交部:不是第一次了","新年伊始，“黄背心”重回法国街头。美国政府关门副总统却涨薪？彭斯回应：我不会接受","美国以倒卖军火为由逮捕一俄罗斯人 俄外交部:不是第一次了","新年伊始，“黄背心”重回法国街头</p>
+    <input type="text">
+    <button>查找</button>
+    <input type="text">
+    <button>替换</button>
+    <script>
+    var oP = document.getElementsByTagName("p")[0];
+    var aTe = document.getElementsByTagName("input");
+    var aBtn = document.getElementsByTagName("button");
+    oP.inner = oP.innerHTML;
+    aBtn[0].onclick = function (){
+        var str = aTe[0].value;
+        if(oP.inner.indexOf(str)>=0&&str){
+            oP.innerHTML = oP.inner.split(str).join("<span>"+str+"</span>");
+            var aSp = document.getElementsByTagName("span");
+            for(var i=0;i<aSp.length;i++){
+                aSp[i].style.cssText = "color:white;background-color:red";
+            }
+        }else{
+            alert("没有查找到该字符");
+        }
+    }
+    aBtn[1].onclick = function (){
+        var str = aTe[0].value;
+        if(oP.inner.indexOf(str)>=0&&str){
+            oP.innerHTML = oP.inner.split(str).join("<span>"+aTe[1].value+"</span>");
+            var aSp = document.getElementsByTagName("span");
+            for(var i=0;i<aSp.length;i++){
+                aSp[i].style.cssText = "color:white;background-color:red";
+            }
+        }else{
+            alert("没有查找到该字符");
+        }
+    }
+    </script>
+</body>
+</html>

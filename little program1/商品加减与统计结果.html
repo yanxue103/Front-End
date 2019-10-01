@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<script>
+
+</script>
+</head>
+
+<body>
+
+<ul id="list">
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>12.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>10.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8.5元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>8元</em>
+    小计：<span>0元</span>
+  </li>
+	<li>
+  	<input type="button" value="-" />
+    <strong>0</strong>
+  	<input type="button" value="+" />
+    单价：<em>14.5元</em>
+    小计：<span>0元</span>
+  </li>
+</ul>
+
+<p>
+商品合计共：<span>0</span> 件，共花费了：<span>0</span>元<br />
+所购商品中最贵的商品单价是：<span>0</span>元
+</p>
+
+</body>
+<script>
+var aLi = document.getElementsByTagName("li");
+var aSpan = document.getElementsByTagName("p")[0].getElementsByTagName("span");
+for(var i=0;i<aLi.length;i++){
+  price(i);
+}
+function price(j){
+  var oStr = aLi[j].getElementsByTagName("strong")[0];
+  var aBtn = aLi[j].getElementsByTagName("input");
+  var oEm = aLi[j].getElementsByTagName("em")[0];
+  var oSpan = aLi[j].getElementsByTagName("span")[0];
+  aBtn[0].onclick = function (){
+    oStr.innerHTML>0 && oStr.innerHTML--;
+    oSpan.innerHTML = oStr.innerHTML*parseFloat(oEm.innerHTML)+"元";
+    aSpan[0].innerHTML = allP()[0];
+    aSpan[1].innerHTML = allP()[1];
+    aSpan[2].innerHTML = allP()[2];
+  }
+  aBtn[1].onclick = function (){
+    oStr.innerHTML++;
+    oSpan.innerHTML = oStr.innerHTML*parseFloat(oEm.innerHTML)+"元";
+    aSpan[0].innerHTML = allP()[0];
+    aSpan[1].innerHTML = allP()[1];
+    aSpan[2].innerHTML = allP()[2];
+  }
+}
+function allP(){
+  var aStr = document.getElementsByTagName("strong");
+  var aSpan = document.getElementsByTagName("ul")[0].getElementsByTagName("span");
+  var aEm = document.getElementsByTagName("em");
+  var iNum = 0;
+  var iPrice = 0;
+  var arr = [];
+  var iMax = 0;
+  for(var i=0;i<aStr.length;i++){
+    iNum+=Number(aStr[i].innerHTML);
+    iPrice+=parseFloat(aSpan[i].innerHTML);
+    aStr[i].innerHTML!=0 && arr.push(parseFloat(aEm[i].innerHTML));
+  }
+  for(var i=0;i<arr.length;i++){
+    iMax<arr[i] && (iMax=arr[i]);
+  }
+  return [iNum,iPrice,iMax];
+}
+</script>
+</html>

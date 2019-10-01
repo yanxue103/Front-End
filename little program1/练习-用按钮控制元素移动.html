@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: red;
+        position: absolute;
+        left: 0;
+        top: 100px; 
+    }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>移动</button>
+    <script src="myjs.js"></script>
+    <script>
+    var oDiv = document.getElementsByTagName("div")[0];
+    var oBtn = document.getElementsByTagName("button")[0];
+    var timer = 0;
+    oBtn.onmousedown = function (){
+        timer = setInterval(function(){
+            oDiv.style.left = parseFloat(getStyle(oDiv,"left"))+4+"px";
+        },50)
+    }
+    oBtn.onmouseup = function (){
+        clearInterval(timer);
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wrap{
+        width: 735px;
+        height: 420px;
+        background-color: #efefef;
+        margin: 0 auto;
+        padding: 25px;
+        box-sizing: border-box;
+        position: relative;
+    }
+    p{
+        margin: 0;
+        font-size: 24px;
+        font-weight: bold;
+    }
+    #btn1{
+        border: none;
+        padding: 0;
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+        color: white;
+        background-color: red;
+    }
+    #div1{
+        width: 100px;
+        height: 100px;
+        border: #393129 4px solid;
+        background-color: white;
+    }
+    #div2{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+    }
+    .ctrl{
+        position: absolute;
+        right: 25px;
+        bottom: 30px;
+        width: 340px;
+        height: 240px;
+        box-sizing: border-box;
+        border: 20px #9c949c solid;
+        background-color: white;
+        padding-top:15px;
+        padding-bottom: 20px; 
+    }
+    .ctrl div{
+        text-align: center;
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    .ctrl div:nth-last-child(1){
+        margin-top: 21px;
+    }
+    .ctrl div button{
+        width: 36px;
+        height: 32px;
+        box-sizing: border-box;
+    }
+    #color1{
+        background-color: red;
+        color: white;
+        font-size: 14px;
+        border: none;
+        padding: 0;
+        margin-left: 5px;
+    }
+    #color2{
+        background-color: yellow;
+        color: white;
+        font-size: 14px;
+        border: none;
+        padding: 0;
+        margin-left: 5px;
+    }
+    #color3{
+        background-color: blue;
+        color: white;
+        font-size: 14px;
+        border: none;
+        padding: 0;
+        margin-left: 5px;
+    }
+    #width1,#width2,#width3,#height1,#height2,#height3{
+        background-color: #efefef;
+        border: 1px #c0c0c0 solid;
+        color: #808080;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    #btn2,#btn3{
+        width: 60px;
+        height: 30px;
+        background-color: #002952;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <p>请为下面的div设置样式：<button id="btn1">点击设置</button></p>
+        <div id="div1"></div>
+        <div id="div2">
+            <div class="ctrl">
+                <div>请选择背景色：<button id="color1">红</button><button id="color2">黄</button><button id="color3">蓝</button></div>
+                <div>请选择宽(px)：<button id="width1">150</button><button id="width2">200</button><button id="width3">250</button></div>
+                <div>请选择高(px)：<button id="height1">150</button><button id="height2">200</button><button id="height3">250</button></div>
+                <div><button id="btn2">恢复</button><button id="btn3">确定</button></div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var oBtn1 = document.getElementById("btn1");
+    var oDiv2 = document.getElementById("div2");
+    var oDiv1 = document.getElementById("div1");
+    var oBtn2 = document.getElementById("btn2");
+    var oBtn3 = document.getElementById("btn3");
+    var oColor1 = document.getElementById("color1");
+    var oColor2 = document.getElementById("color2");
+    var oColor3 = document.getElementById("color3");
+    var oWidth1 = document.getElementById("width1");
+    var oWidth2 = document.getElementById("width2");
+    var oWidth3 = document.getElementById("width3");
+    var oHeight1 = document.getElementById("height1");
+    var oHeight2 = document.getElementById("height2");
+    var oHeight3 = document.getElementById("height3");
+    oBtn1.onclick = function (){
+        oDiv2.style.display = "block";
+    }
+    oBtn3.onclick = function (){
+        oDiv2.style.display = "none";
+    }
+    oColor1.onclick = function (){
+        oDiv1.style.backgroundColor = "red";
+    }
+    oColor2.onclick = function (){
+        oDiv1.style.backgroundColor = "yellow";
+    }
+    oColor3.onclick = function (){
+        oDiv1.style.backgroundColor = "blue";
+    }
+    oWidth1.onclick = function (){
+        oDiv1.style.width = "150px";
+    }
+    oWidth2.onclick = function (){
+        oDiv1.style.width = "200px";
+    }
+    oWidth3.onclick = function (){
+        oDiv1.style.width = "250px";
+    }
+    oHeight1.onclick = function (){
+        oDiv1.style.height = "150px";
+    }
+    oHeight2.onclick = function (){
+        oDiv1.style.height = "200px";
+    }
+    oHeight3.onclick = function (){
+        oDiv1.style.height = "250px";
+    }
+    oBtn2.onclick = function (){
+        // oDiv1.style.backgroundColor = "white";
+        // oDiv1.style.width = "100px";
+        // oDiv1.style.height = "100px";
+        oDiv1.style.cssText = "background-color:white;width:100px;height:100px;";
+    }
+    </script>
+</body>
+</html>
