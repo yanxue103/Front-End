@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="fm">
+        <input type="checkbox" name="number"/>111 <br>
+        <input type="checkbox" name="number"/>222 <br>
+        <input type="checkbox" name="number"/>333 <br>
+        <input type="checkbox" name="number"/>444 <br>
+        <input type="checkbox" name="number"/>555
+    </form>
+    <script>
+    var oF = document.getElementById("fm");
+    for(var i=0;i<oF.number.length;i++){
+        oF.number[i].onclick = function (){
+            var checks = 0;
+            for(var j=0;j<oF.number.length;j++){
+                if(oF.number[j].checked){
+                    checks++;
+                }
+            }
+            if(checks>3){
+                alert("你最多只能选择3项");
+                return false;
+            }
+        }
+    }
+    </script>
+</body>
+</html>

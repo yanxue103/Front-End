@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #ball{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    #ban{
+        width: 200px;
+        height: 20px;
+        background-color: black;
+        position: fixed;
+        left: 0;
+        bottom: 40px;
+    }
+    </style>
+</head>
+<body>
+    <div id="ball"></div>
+    <div id="ban"></div>
+    <script>
+    var oBall = document.querySelector("#ball");
+    var oBan = document.querySelector("#ban");
+    oBall.t = oBall.l = oBall.r = oBall.b = true;
+    var sX = 0;
+    var sY = 0;
+    var timer = null;
+    document.onmousemove = function (){
+        var newL = event.clientX - oBan.offsetWidth/2;
+        newL = Math.max(0,newL);
+        newL = Math.min(newL,document.documentElement.clientWidth-oBan.offsetWidth);
+        oBan.style.left = newL + "px";
+    }
+    document.onclick = function (){
+        sY = 8;
+        sX = Math.random()*(10-6)+6;
+        timer = setInterval(function (){
+            var newL = oBall.offsetLeft + sX;
+            var newT = oBall.offsetTop + sY;
+            if(newT<=0){
+                newT = 0;
+                sY = -sY;
+            }
+            if(newL<=0){
+                newL = 0;
+                sX = -sX;
+            }
+            if(newL>=document.documentElement.clientWidth-oBall.offsetWidth){
+                newL = document.documentElement.clientWidth-oBall.offsetWidth;
+                sX = -sX;
+            }
+            if(newT>=document.documentElement.clientHeight-oBall.offsetHeight){
+                clearInterval(timer);
+                alert("game over!");
+            }
+            var pointX = newL + oBall.offsetWidth/2;
+            var pointY = newT + oBall.offsetHeight/2;
+            oBall.l = pointX<oBan.offsetLeft ? true : false;
+            oBall.r = pointX>oBan.offsetLeft+oBan.offsetWidth ? true : false;
+            oBall.t = pointY<oBan.offsetTop ? true : false;
+            oBall.b = pointY>oBan.offsetTop+oBan.offsetHeight ? true : false;
+            if(newL+oBall.offsetWidth<oBan.offsetLeft||newL>oBan.offsetLeft+oBan.offsetWidth||newT+oBall.offsetHeight<oBan.offsetTop||newT>oBan.offsetTop+oBan.offsetHeight){
+                oBall.bOn = true;
+            }else{
+                if(oBall.l&&!oBall.t){
+                    newL = oBan.offsetLeft - oBall.offsetWidth;
+                    sX = -sX;
+                }
+                if(oBall.r&&!oBall.t){
+                    newL = oBan.offsetLeft + oBan.offsetWidth;
+                    sX = -sX;
+                }
+                if(oBall.t){
+                    newT = oBan.offsetTop - oBall.offsetHeight;
+                    sX += Math.random()*12-6;
+                    sY = -sY;
+                }
+            }
+            oBall.style.left = newL + "px";
+            oBall.style.top = newT + "px";
+        },50)
+    }
+    </script>
+</body>
+</html>

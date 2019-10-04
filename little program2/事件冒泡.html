@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1{
+        width: 300px;
+        height: 200px;
+        background-color: blue;
+    }
+    #div2{
+        width: 250px;
+        height: 100px;
+        background-color: yellow;
+    }
+    #div3{
+        width: 150px;
+        height: 50px;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+    <script>
+    var aDiv = document.querySelectorAll("div");
+    for(var i=0;i<aDiv.length;i++){
+        aDiv[i].onclick = function (){
+            alert(this.id);
+            event.cancelBubble = true;
+        }
+    }
+    </script>
+</body>
+</html>

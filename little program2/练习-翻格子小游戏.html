@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #wrap{
+        width: 600px;
+        height: 600px;
+        border: 2px #000 solid;
+        position: relative;
+    }
+    #wrap div{
+        width: 120px;
+        height: 120px;
+        border: 1px red solid;
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+    </div>
+    <script>
+    var oDiv = document.getElementById("wrap");
+    var aDiv = oDiv.getElementsByTagName("div");
+    for(var i=0;i<25;i++){
+        var oDiv1 = document.createElement("div");
+        oDiv1.style.left = i%5*120+"px";
+        oDiv1.style.top = parseInt(i/5)*120+"px";
+        oDiv1.bOn = true;
+        oDiv1.index = i;
+        oDiv1.onclick = function (){
+            var arr = near(this.index);
+            for(var j=0;j<arr.length;j++){
+                arr[j].style.backgroundColor = arr[j].bOn ? "black" : "white";
+                arr[j].bOn = !arr[j].bOn;
+            }
+        }
+        oDiv.appendChild(oDiv1);
+    }
+    function near(n){
+        var arr = [];
+        arr.push(aDiv[n]);
+        n%5!=0 && arr.push(aDiv[n-1]);
+        n%5!=4 && arr.push(aDiv[n+1]);
+        parseInt(n/5)!=0 && arr.push(aDiv[n-5]);
+        parseInt(n/5)!=4 && arr.push(aDiv[n+5]);
+        return arr;
+    }
+    </script>
+</body>
+</html>

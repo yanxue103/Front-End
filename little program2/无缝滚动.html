@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #wrap{
+        width: 1600px;
+        overflow: hidden;
+        margin: 100px auto;
+        position: relative;
+        height: 450px;
+        border: 1px #000 solid;
+    }
+    #scroll{
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+    }
+    img{
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="scroll">
+            <img src="img/img4.jpg" alt="">
+            <img src="img/img5.jpg" alt="">
+            <img src="img/img6.jpg" alt="">
+            <img src="img/img7.jpg" alt="">
+            <img src="img/img8.jpg" alt="">
+            <img src="img/img9.jpg" alt="">
+        </div>
+    </div>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    var imgW = $("img").outerWidth();
+    $("#scroll").html($("#scroll").html()+$("#scroll").html()).css("width",imgW*$("img").length);
+    var timer = setInterval(scrollPage,1500);
+    function scrollPage(){
+        $("#scroll").velocity({"left":"-="+imgW},{"duration":700,"complete":function (){
+            if($("#scroll").position().left<=-$("#scroll").outerWidth()/2){
+                $("#scroll").css("left",0);
+            }
+        }});
+    }
+    $("#wrap").hover(function (){
+        clearInterval(timer);
+    },function (){
+        timer = setInterval(scrollPage,1500);
+    })
+    
+    </script>
+</body>
+</html>

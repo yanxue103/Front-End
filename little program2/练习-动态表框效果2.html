@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1{
+        width: 400px;
+        height: 200px;
+        margin: 100px auto;
+        background-color: yellow;
+        position: relative;
+    }
+    #divT{
+        width: 0;
+        height: 2px;
+        background-color: red;
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+    }
+    #divR{
+        width: 2px;
+        height: 0;
+        background-color: red;
+        position:absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+    #divB{
+        width: 0;
+        height: 2px;
+        background-color: red;
+        position:absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+    #divL{
+        width: 2px;
+        height: 0;
+        background-color: red;
+        position:absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="divT"></div>
+        <div id="divR"></div>
+        <div id="divB"></div>
+        <div id="divL"></div>
+    </div>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    $("#div1").hover(function (){
+        $("#divT").velocity({"width":"100%"},{"duration":400});
+        $("#divR").velocity({"height":"100%"},{"duration":400});
+        $("#divB").velocity({"width":"100%"},{"duration":400});
+        $("#divL").velocity({"height":"100%"},{"duration":400});
+    },function (){
+        $("#divT").velocity({"width":"0"},{"duration":400});
+        $("#divR").velocity({"height":"0"},{"duration":400});
+        $("#divB").velocity({"width":"0"},{"duration":400});
+        $("#divL").velocity({"height":"0"},{"duration":400});
+    })
+    </script>
+</body>
+</html>

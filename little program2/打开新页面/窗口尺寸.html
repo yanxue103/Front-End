@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        margin: 0;
+        height: 2000px;
+    }
+    </style>
+</head>
+<body>
+    <script>
+    window.onload = function (){
+        var w1 = document.documentElement.clientWidth;
+        var h1 = document.documentElement.clientHeight;
+        var h2 = window.innerHeight;
+        var w2 = window.innerWidth; //返回窗口的文档显示区的高度/宽度
+        var h3 = window.outerHeight;
+        var w3 = window.outerWidth; // 返回窗口的外部高度/宽度
+        console.log(w1,h1);
+        console.log(w2,h2);
+        console.log(w3,h3);
+    }
+    </script>
+</body>
+</html>

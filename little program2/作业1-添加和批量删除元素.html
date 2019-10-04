@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li.active{
+        background-color: red;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button>发送</button>
+    <button>批量删除</button>
+    <ul></ul>
+    <script>
+    var oTe = document.querySelector("input");
+    var aBtn = document.querySelectorAll("button");
+    var oUl = document.querySelector("ul");
+    var aLi = oUl.getElementsByTagName("li");
+    aBtn[0].onclick = function (){
+        var oLi = document.createElement("li");
+        oLi.innerHTML = oTe.value;
+        oLi.onclick = function (){
+            this.classList.toggle("active");
+        }
+        oUl.insertBefore(oLi,oUl.children[0]);
+        if(aLi.length>5){
+            oUl.removeChild(oUl.children[aLi.length-1]);
+        }
+    }
+    aBtn[1].onclick = function (){
+        var aLi = oUl.querySelectorAll("li");
+        for(var i=0;i<aLi.length;i++){
+            if(aLi[i].classList.contains("active")){
+                oUl.removeChild(aLi[i]);
+            }
+        }
+    }
+    </script>
+</body>
+</html>

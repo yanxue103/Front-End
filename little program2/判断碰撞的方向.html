@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #mb{
+        width: 300px;
+        height: 250px;
+        background-color: blue;
+        margin: 200px auto;
+    }
+    #ball{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        background-color: red;
+        left: 0;
+        top: 0;
+        position: absolute;
+    }
+    </style>
+</head>
+<body>
+    <div id="mb"></div>
+    <div id="ball"></div>
+    <script>
+    var oBall = document.querySelector("#ball");
+    var oMb = document.querySelector("#mb");
+    oBall.t = oBall.l = oBall.r = oBall.b = true;
+    oBall.bOn = true;
+    oBall.onmousedown = function (){
+        var disX = event.clientX - oBall.offsetLeft;
+        var disY = event.clientY - oBall.offsetTop;
+        document.onmousemove = function (){
+            var newL = event.clientX - disX;
+            var newT = event.clientY - disY;
+            var pointX = newL + oBall.offsetWidth/2;
+            var pointY = newT + oBall.offsetHeight/2;
+            oBall.l = pointX<oMb.offsetLeft ? true : false;
+            oBall.r = pointX>oMb.offsetLeft+oMb.offsetWidth ? true : false;
+            oBall.t = pointY<oMb.offsetTop ? true : false;
+            oBall.b = pointY>oMb.offsetTop+oMb.offsetHeight ? true : false;
+            if(newL+oBall.offsetWidth<oMb.offsetLeft||newL>oMb.offsetLeft+oMb.offsetWidth||newT+oBall.offsetHeight<oMb.offsetTop||newT>oMb.offsetTop+oMb.offsetHeight){
+                oBall.bOn = true;
+            }else{
+                if(oBall.bOn){
+                    oBall.l && console.log("左");
+                    oBall.r && console.log("右");
+                    oBall.t && console.log("上");
+                    oBall.b && console.log("下");
+                    oBall.bOn = false;
+                }
+            }
+            oBall.style.left = newL + "px";
+            oBall.style.top = newT + "px";
+        }
+        document.onmouseup = function (){
+            document.onmouseup = document.onmousemove = null;
+        }
+        return false;
+    }
+    </script>
+</body>
+</html>

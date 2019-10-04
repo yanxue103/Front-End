@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div{
+        width: 1px;
+        height: 1px;
+        /* background-color: red; */
+        position: fixed;
+        /* left: 300px; */
+        /* top: 240px; */
+        border-radius: 50%;
+        z-index: -1;
+    }
+    </style>
+</head>
+<body>
+    <button>开启</button>
+    <button>关闭</button>
+    <!-- <div></div> -->
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    var timer = null;
+    var iW = null;
+    var iH = null;
+    $("button").eq(0).click(function (){
+        iW = document.documentElement.clientWidth;
+        iH = document.documentElement.clientHeight;
+        timer = setInterval(lianyi,200);
+    })
+    $("button").eq(1).click(function (){
+        clearInterval(timer);
+    })
+    function lianyi(){
+        for(var i=0;i<Math.round(Math.random()*2+3);i++){
+            var oDiv = $("<div>").appendTo($("body"));
+            var rR = Math.round(Math.random()*255);
+            var rG = Math.round(Math.random()*255);
+            var rB = Math.round(Math.random()*255);
+            oDiv.css({
+                "backgroundColor" : `rgb(${rR},${rG},${rB})`,
+                "left" : Math.random()*iW,
+                "top" : Math.random()*iH,          
+            }).velocity({
+                "scaleX" : 150,
+                "scaleY" : 150,
+                "opacity" : 0,
+            },{
+                "duration" : 1000,
+                "complete" : function (){
+                    $(this).remove();
+                }
+            })
+        }
+    }
+    // $(document).click(function (){
+    //     $("div").velocity({
+    //         "scaleX" : 150,
+    //         "scaleY" : 150,
+    //         "backgroundColorAlpha" : 0
+    //     },1000)
+    // })
+    </script>
+</body>
+</html>

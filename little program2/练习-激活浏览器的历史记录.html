@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>生成彩票</button>
+    <p></p>
+    <script>
+    var oBtn = document.querySelector("button");
+    var oP = document.querySelector("p");
+    var json = {};
+    oBtn.onclick = function (){
+        var cp = caip();
+        var time = Date.now();
+        oP.innerHTML = cp;
+        window.location.hash = time;
+        json[time] = cp;
+        console.log(json);
+    }
+    window.onhashchange = function (){
+        if(window.location.hash.length>0){
+            var time = window.location.hash.substring(1);
+            oP.innerHTML = json[time];
+        }else{
+            oP.innerHTML = "";
+        }
+    }
+    function caip(){
+        var arr = [];
+        for(var i=1;i<=35;i++){
+            arr.push(i);
+        }
+        arr.sort(function (a,b){
+            return Math.random()-0.5;
+        })
+        arr.length = 7;
+        return arr;
+    }
+    </script>
+</body>
+</html>

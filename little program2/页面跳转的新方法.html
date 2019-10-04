@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>百度</button>
+    <button>淘宝</button>
+    <form action="表单的提交地址.html" method="GET">
+        <input type="text" name="username"/>
+        <input type="text" name="password"/>
+        <button type="submit">提交</button>
+    </form>
+    <button>跳转页面</button>
+    <script>
+    var aBtn = document.querySelectorAll("button");
+    aBtn[0].onclick = function (){
+        window.location.href = "http://www.baidu.com";
+    }
+    aBtn[1].onclick = function (){
+        window.location.href = "http://www.taobao.com";
+    }
+    aBtn[3].onclick = function (){
+        window.location.href = "表单的提交地址.html#apple";
+    }
+    </script>
+</body>
+</html>

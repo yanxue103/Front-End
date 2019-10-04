@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>发送</button>
+    <ul>
+
+    </ul>
+    <script>
+    var oTe = document.getElementsByTagName("input")[0];
+    var oBtn = document.getElementsByTagName("button")[0];
+    var oUl = document.getElementsByTagName("ul")[0];
+    oBtn.onclick = function (){
+        var oLi = document.createElement("li");
+        var oBtn = document.createElement("button");
+        oLi.innerHTML = oTe.value;
+        oBtn.innerHTML = "撤回";
+        oBtn.onclick = function (){
+            oUl.removeChild(this.parentNode);
+        }
+        oLi.appendChild(oBtn);
+        oUl.appendChild(oLi);
+    }
+    </script>
+</body>
+</html>

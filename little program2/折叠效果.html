@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    dt:after{
+        display: inline;
+        content: "→";
+    }
+    dt.active:after{
+        display: inline;
+        content: "↓";
+    }
+    dd{
+        /* height: 0; */
+        overflow: hidden;
+        transition: all 0.4s;
+    }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt class="active">好友</dt>
+        <dd>
+            <ul>
+                <li>张三丰</li>
+                <li>张无忌</li>
+                <li>赵敏</li>
+            </ul>
+        </dd>
+        <dt>陌生人</dt>
+        <dd>
+            <ul>
+                <li>周芷若</li>
+                <li>周伯通</li>
+                <li>欧阳锋</li>
+            </ul>
+        </dd>
+        <dt>黑名单</dt>
+        <dd>
+            <ul>
+                <li>如来佛</li>
+                <li>玉皇大帝</li>
+            </ul>
+        </dd>
+    </dl>
+    <script>
+    var aDt = document.getElementsByTagName("dt");
+    var aDD = document.getElementsByTagName("dd");
+    var arr = [];
+    var iActive = 0;
+    for(var i=0;i<aDt.length;i++){
+        arr.push(aDD[i].offsetHeight);
+        aDD[i].style.height = "0";
+        (function (i){
+            aDt[i].onclick = function (){
+                aDt[iActive].classList.remove("active");
+                this.classList.add("active");
+                aDD[iActive].style.height = 0;
+                aDD[i].style.height = arr[i]+"px";
+                iActive = i;
+            }
+        }(i))
+    }
+    aDD[0].style.height = arr[0]+"px";
+    </script>
+</body>
+</html>

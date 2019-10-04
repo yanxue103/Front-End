@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 2000px;
+    }
+    button{
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        position: fixed;
+        right: 10px;
+        bottom: 15px;
+    }
+    button:after{
+        display: inline;
+        content: "↑";
+    }
+    </style>
+</head>
+<body>
+    <button>回到顶部</button>
+    <script>
+    var oBtn = document.querySelector("button");
+    window.onload = window.onscroll = function (){
+        var scroll = document.body.scrollTop || document.documentElement.scrollTop;
+        oBtn.style.display = scroll>=200 ? "block" : "none"; 
+    }
+    oBtn.onclick = function (){
+        window.scrollTo(0,0);
+    }
+    </script>
+</body>
+</html>

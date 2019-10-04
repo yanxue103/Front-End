@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/font-awesome.css"/>
+    <style>
+    #wrap{
+        width: 800px;
+        height: 450px;
+        margin: 100px auto;
+        position: relative;
+    }
+    #scroll{
+        overflow: hidden;
+        position:absolute;
+        left: 0;
+        top: 0;
+    }
+    img{
+        float: left;
+    }
+    button{
+        border: none;
+        padding: 0;
+        background-color: gray;
+        color: white;
+        font-size: 50px;
+        position: absolute;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+    button:nth-of-type(1){
+        top: 50%;
+        transform: translateY(-50%);
+        left: -60px;
+    }
+    button:nth-of-type(2){
+        top: 50%;
+        transform: translateY(-50%);
+        right: -60px;
+    }
+    span{
+        box-sizing: border-box;
+        font-size: 14px;
+        border-radius: 50%;
+        background-color: white;
+        width: 20px;
+        height: 20px;
+        display: block;
+        float: left;
+        text-align: center;
+        line-height: 16px;
+        margin: 0 5px;
+        border: 2px white solid;
+        cursor: pointer;
+    }
+    span.active{
+        border: 2px green solid;
+        color: red;
+    }
+    #point{
+        position: absolute;
+        right: 50px;
+        bottom: 10px;
+        overflow: hidden;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <button><i class="fa fa-angle-double-left "></i></button>
+        <button><i class="fa fa-angle-double-right "></i></button>
+        <div style="overflow: hidden; height:450px;position: relative;">
+            <div id="scroll">
+                <img src="img/img4.jpg" alt="">
+                <img src="img/img5.jpg" alt="">
+                <img src="img/img6.jpg" alt="">
+                <img src="img/img7.jpg" alt="">
+                <img src="img/img8.jpg" alt="">
+                <img src="img/img9.jpg" alt="">
+            </div>
+        </div>
+        <div id="point">
+            <!-- <span>1</span> -->
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    $("#scroll img").eq(0).clone().appendTo($("#scroll"));
+    var imgW = $("#scroll img").eq(0).outerWidth();
+    $("#scroll").css("width",$("#scroll img").length*imgW);
+    var i = 0;
+    var bOn = true;
+    for(var j=0;j<$("img").length-1;j++){
+        $("<span>").html(j+1).click(function (){
+            i = $(this).index();
+            $("#scroll").velocity({"left":-i*imgW});
+            $(this).addClass("active").siblings().removeClass("active");
+        }).appendTo($("#point"));
+    }
+    $("#point span").eq(i).addClass("active");
+    $("button").eq(0).click(function (){
+        if(bOn){
+            bOn = false;
+            if(i==0){
+                i = $("img").length-1;
+                $("#scroll").css("left",-i*imgW);
+            }
+            i--;
+            $("#scroll").velocity({"left":-i*imgW},{"duration":800,"complete":function (){
+                bOn = true;
+                $("span").eq(i).addClass("active").siblings().removeClass("active");
+            }});
+        }
+    })
+    $("button").eq(1).click(function (){
+        if(bOn){
+            bOn = false;
+            i++;
+            $("#scroll").velocity({"left":-i*imgW},{"duration":800,"complete":function (){
+                bOn = true;
+                if(i==$("img").length-1){
+                    i=0;
+                    $("#scroll").css("left",-i*imgW);
+                }
+                $("span").eq(i).addClass("active").siblings().removeClass("active");
+            }});
+        }
+    })
+    </script>
+</body>
+</html>

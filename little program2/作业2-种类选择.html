@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div span{
+        border: 1px #000 solid;
+        padding: 2px;
+        margin-right: 5px;
+    }
+    div span::after{
+        display: inline;
+        content: "×";
+        margin-left: 3px;
+        cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <ol>
+        <li>
+            <span>地区：</span>
+            <ul>
+                <li>未央区</li>
+                <li>临潼区</li>
+                <li>长安区</li>
+                <li>雁塔区</li>
+            </ul>
+        </li>
+        <li>
+            <span>职位</span>
+            <ul>
+                <li>前端工程师</li>
+                <li>后台工程师</li>
+                <li>美工设计</li>
+            </ul>
+        </li>
+        <li>
+            <span>薪资</span>
+            <ul>
+                <li>5000以下</li>
+                <li>5000-8000</li>
+                <li>8000以上</li>
+            </ul>
+        </li>
+    </ol>
+    <div></div>
+    <script>
+    var aUl = document.querySelectorAll("ul");
+    var aLi = [];
+    var oDiv = document.querySelector("div");
+    var aSp = oDiv.getElementsByTagName("span");
+    for(var i=0;i<aUl.length;i++){
+        aUl[i].bOn = true;
+        aUl[i].index = i;
+        var thisLi = aUl[i].querySelectorAll("li");
+        for(var j=0;j<thisLi.length;j++){
+            aLi.push(thisLi[j]);
+        }
+    }
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].onclick = function (){
+            if(this.parentNode.bOn){
+                var oSp = document.createElement("span");
+                oSp.innerHTML = this.innerHTML;
+                //创建的span的内容为当前li的内容
+                oSp.index = this.parentNode.index;
+                //给创建的span设置索引值等于当前li的父元素的索引值
+                oSp.onclick = function (){
+                    oDiv.removeChild(this);
+                    aUl[this.index].bOn = true;
+                    //通过当前span的索引值找到对应的ul，并打开开关，让该ul又可以创建新的span元素
+                }
+                oDiv.appendChild(oSp);
+                this.parentNode.bOn = false;
+                //关闭开关，当前ul的li不能创建新的span
+            }else{
+                for(var j=0;j<aSp.length;j++){
+                    if(aSp[j].index==this.parentNode.index){
+                        //判断哪个span的索引值等于当前li的父元素的索引值，并将li的内容赋给它
+                        aSp[j].innerHTML = this.innerHTML;
+                    }
+                }
+            }
+        }
+    }
+    </script>
+</body>
+</html>

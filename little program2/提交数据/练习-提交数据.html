@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>apple</button>
+    <button>pear</button>
+    <button>orange</button>
+    <button>banana</button>
+    <script>
+    var aBtn = document.querySelectorAll("button");
+    for(var i=0;i<aBtn.length;i++){
+        aBtn[i].onclick = function (){
+            window.location.href = "商品详情页.html#"+this.innerHTML;
+        }
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #wrap{
+        width: 700px;
+        height: 30px;
+        border: 1px #000 solid;
+        position: relative;
+        margin: 100px auto;
+        overflow: hidden;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        padding-left: 20px;
+    }
+    li{
+        line-height: 30px;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+        </ul>
+    </div>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    var arr = ["美国政府关门副总统却涨薪？彭斯回应：我不会接受","美国以倒卖军火为由逮捕一俄罗斯人 俄外交部:不是第一次了","新年伊始，“黄背心”重回法国街头","'帕布'袭击泰国至少3人死亡 近4万游客被困旅游区","五角大楼现离职潮？马蒂斯参谋长斯维尼宣布辞职","俄媒：伊朗将派军舰前往美国海岸执行任务","今年首场日偏食来了！天空中上演'天狗吃太阳'(图)"];
+    arr.forEach(function (item){
+        $("<li>").html(item).appendTo($("ul"));
+    })
+    $("ul").html($("ul").html()+$("ul").html());
+    setInterval(newsChange,2000);
+    function newsChange(){
+        $("ul").velocity({"top":"-="+$("li").outerHeight()},{"duration":900,"complete":function (){
+            if($("ul").position().top<=-$("ul").outerHeight()/2){
+                $("ul").css("top",0);
+            }
+        }});
+    }
+    </script>
+</body>
+</html>

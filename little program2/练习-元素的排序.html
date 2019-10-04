@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #li1{
+        background-color: red;
+    }
+    #li2{
+        background-color: blue;
+    }
+    #li3{
+        background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+    <button>反向</button>
+    <ul>
+        <li id="li1"></li>
+        <li id="li2"></li>
+        <li id="li3"></li>
+    </ul>
+    <script>
+    var oUl = document.getElementsByTagName("ul")[0];
+    var oBtn = document.getElementsByTagName("button")[0];
+    oBtn.onclick = function (){
+        var aLi = document.getElementsByTagName("li");
+        var arr = Array.prototype.slice.call(aLi).reverse();
+        for(var i=0;i<aLi.length;i++){
+            oUl.appendChild(arr[i]);
+        }
+    }
+    </script>
+</body>
+</html>

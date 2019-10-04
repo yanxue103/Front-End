@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .wrap{
+        width: 480px;
+        border: 1px #000 solid;
+    }
+    #ctrl{
+        overflow: hidden;
+    }
+    button{
+        width: 160px;
+        height: 60px;
+        font-size: 24px;
+        float: left;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background-color: #666;
+    }
+    #content{
+        height: 250px;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: 18px;
+    }
+    button.active{
+        background-color: white;
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="ctrl">
+            <button class="active">AAA</button>
+            <button>BBB</button>
+            <button>CCC</button>
+        </div>
+        <div id="content"></div>
+    </div>
+    <script>
+    var arr = ["我是第一个AAA的内容","我是第二个BBB的内容","我是第三个CCC的内容"];
+    var aBtn = document.getElementsByTagName("button");
+    var oDiv = document.getElementById("content");
+    oDiv.innerHTML = arr[0];
+    var iActive = 0;
+    for(var i=0;i<aBtn.length;i++){
+        (function (i){
+            aBtn[i].onclick = function (){
+                oDiv.innerHTML = arr[i];
+                aBtn[iActive].classList.remove("active");
+                this.classList.add("active");
+                iActive = i;
+            }
+        }(i))
+    }
+    </script>
+</body>
+</html>

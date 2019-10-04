@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1,#div2{
+        width: 100px;
+        height: 100px;
+    }
+    #div1{
+        background-color: red;
+    }
+    #div2{
+        background-color: blue;
+    }
+    </style>
+</head>
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script>
+    //点击1：交换div1和div2的位置
+    //点击2：把div1放进div3
+    //点击3：把div2放在div3的内容之后
+    $("button").eq(0).click(function (){
+        $("div").eq(0).insertAfter($("div").eq(1));
+    })
+    $("button").eq(1).click(function (){
+        $("#div1").appendTo($("#div3"));
+    })
+    $("button").eq(2).click(function (){
+        $("#div2").appendTo($("#div3"));
+    })
+    </script>
+</body>
+</html>

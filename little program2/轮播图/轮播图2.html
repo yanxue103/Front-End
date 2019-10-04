@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #wrap{
+        width: 800px;
+        height: 450px;
+        margin: 100px auto;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+        </ul>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    var arr = ["url(img/img4.jpg)","url(img/img5.jpg)","url(img/img6.jpg)","url(img/img7.jpg)","url(img/img8.jpg)","url(img/img9.jpg)"];
+    var j = 0;
+    for(var i=0;i<100;i++){
+        var oLi = $("<li>").css({
+            "backgroundImage" : arr[j],
+            "height" : "4.5px",
+            "backgroundPositionY" : -i*4.5+"px"
+        }).appendTo($("ul"));
+    }
+    changePic();
+    setInterval(function (){
+        changePic();
+    },3000)
+    
+    function changePic(){
+        if(j==arr.length-1){
+            j = 0;
+        }else{
+            j++;
+        }
+        var i = 0;
+        var timer = setInterval(function (){
+            $("li").eq(i++).velocity({"opacity":0},{"duration":200,"complete":function (){
+                $(this).css("backgroundImage",arr[j])
+            }}).velocity({"opacity":1},200);
+            if(i==100){
+                clearInterval(timer);
+            }
+        },15)
+    }
+    </script>
+</body>
+</html>

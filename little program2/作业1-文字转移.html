@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    textarea,div{
+        width: 400px;
+        height: 300px;
+        border: 1px #000 solid;
+        display: inline-block;
+        resize: none;
+        vertical-align: top;
+        font-size: 22px;
+    }
+    button{
+        width: 100px;
+        height: 40px;
+        font-size: 26px;
+    }
+    </style>
+</head>
+<body>
+    <textarea></textarea>
+    <button>转移</button>
+    <div></div>
+    <script>
+    var oTe = document.getElementsByTagName("textarea")[0];
+    var oBtn = document.getElementsByTagName("button")[0];
+    var oDiv = document.getElementsByTagName("div")[0];
+    oBtn.onclick = function (){
+        oDiv.innerHTML = "";
+        var timer = setInterval(function (){
+            var str = oTe.value;
+            if(str){
+                oTe.value = str.substring(1);
+                oDiv.innerHTML += str[0];
+            }else{
+                clearInterval(timer);
+            }
+        },50)
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"/>
+    <button>判断</button>
+    <p>1,2,3,4,5</p>
+    <script>
+    var arr = [1,2,3,4,5];
+    // 在输入框里输入一个大于0的整数，如果该整数在arr里存在则将该数字删除，否则将该数字添加进数组
+    var oT = document.querySelector("input");
+    var oBtn = document.querySelector("button");
+    var oP = document.querySelector("p");
+    oBtn.onclick = function (){
+        var num = Number(oT.value);
+        arr.includes(num) ? arr = arr.filter(item=>num!=item) : arr.push(num);
+        oP.innerHTML = arr;
+    }
+    </script>
+</body>
+</html>
