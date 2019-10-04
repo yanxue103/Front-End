@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        border-bottom: 2px #009fe9 solid;
+        width: 700px;
+        position: relative;
+    }
+    li#bg{
+        display: block;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #009fe9;
+        width: 140px;
+        height: 50px;
+        z-index: -1;
+    }
+    li:not(#bg){
+        width: 140px;
+        float: left;
+    }
+    a{
+        text-decoration: none;
+        color: #000;
+        display: block;
+        height: 50px;
+        font-size: 22px;
+        text-align: center;
+        line-height: 50px;
+        transition: color linear 0.3s;
+    }
+    a.active{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" class="active">TAB1</a></li>
+        <li><a href="#">TAB2</a></li>
+        <li><a href="#">TAB3</a></li>
+        <li><a href="#">TAB4</a></li>
+        <li><a href="#">TAB5</a></li>
+        <li id="bg"></li>
+    </ul>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="velocity.min.js"></script>
+    <script>
+    var timer = null;
+    $("a").mouseover(function (){
+        clearTimeout(timer);
+        $(this).addClass("active").parent().siblings().find("a").removeClass("active");
+        $("#bg").finish().velocity({"left":$(this).position().left},{duration:300,easing:[800,15]});
+    })
+    $("ul").mouseout(function (){
+        timer = setTimeout(function (){
+            $("#bg").finish().velocity({"left":0},{duration:300,easing:[800,15]});
+            $("a").eq(0).addClass("active").parent().siblings().find("a").removeClass("active");
+        },50)
+    })
+    </script>
+</body>
+</html>
