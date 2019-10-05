@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <style>
+    #wrap{
+        width: 900px;
+        background-color: azure;
+        margin: 0 auto;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+    }
+    li{
+        width: 200px;
+        background-color: rgba(255,255,0,0.3);
+        float: left;
+        /* height: 200px; */
+        margin-right: 33px;
+    }
+    li:nth-last-child(1){
+        margin-right: 0;
+    }
+    li div{
+        margin-bottom: 10px;
+        /* border-bottom: 1px black solid; */
+    }
+    img{
+        width: 200px;
+    }
+    p{
+        margin: 0;
+        line-height: 30px;
+        font-size: 22px;
+        color: #333;
+    }
+    </style>
+</head>
+<body>
+    <Div id="wrap">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </Div>
+    <script src="jquery.min.js"></script>
+    <script>
+    // 延时加载效果，也被称为懒加载效果
+    $.getJSON("daata.txt",function (result){
+        var oImg = null;
+        var i=0;
+        var lastPic = 20;
+        var bOn = true;
+        createPic(lastPic);
+        $(window).on("scroll",function (){   //滚动条事件，如果滚动条滚到最矮的那个li下面了，就再加载15张图片
+            if(bOn&&$(document).scrollTop()+document.documentElement.clientHeight>$("li").eq(whichLi()).outerHeight()){
+                bOn = false;
+                lastPic += 15;
+                if(lastPic>=result.length){
+                    lastPic = result.length;
+                    $(window).off("scroll");
+                }
+                createPic(lastPic);
+            }
+        })
+
+        function createPic(n){  //为每个块创建div和里面的img和p标签
+            var oDiv = $("<div>").appendTo($("li").eq(whichLi()));
+            oImg = $("<img>").attr("src",result[i].url).appendTo(oDiv);
+            $("<p>").html(result[i].content).appendTo(oDiv);
+            i++;
+            oImg.load(function (){   //图片加载判断
+                if(i<n){   
+                    createPic(n);
+                }else{
+                    bOn = true;
+                }
+            })
+        }
+    })
+
+    function whichLi(){ //判断最矮的那个li是哪个li，下一张图片就加载在谁下面
+        var arr = [];
+        $("li").each(function (){
+            arr.push($(this).outerHeight());
+        })
+        var srr = Array.from(arr);
+        var heightMin = srr.sort((a,b)=>a-b)[0];
+        return arr.indexOf(heightMin);
+    }
+    // console.log(whichLi());
+    </script>
+</body>
+</html>
