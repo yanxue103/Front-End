@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+    }
+    #wrap{
+        width: 608px;
+        height: 158px;
+        border: 1px black solid;
+    }
+    li{
+        width: 130px;
+        height: 130px;
+        background-color: deepskyblue;
+        color: white;
+        font-size: 22px;
+        float: left;
+        margin-right: 20px;
+        border: 1px solid teal;
+    }
+    button{
+        width: 50px;
+        height: 25px;
+        background-color: yellowgreen;
+        color: white;
+        padding: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <ul>
+            <!-- <li>第1件商品，苹果1，价格：6元</li>
+            <li>第2件商品，苹果2，价格：6元</li>
+            <li>第3件商品，苹果3，价格：6元</li>
+            <li>第4件商品，苹果4，价格：6元</li> -->
+        </ul>
+        <div id="ctrl">
+            <!-- <button>第1页</button>
+            <button>第2页</button>
+            <button>第3页</button>
+            <button>第4页</button> -->
+        </div>
+    </div>
+    <script src="jquery.min.js"></script>
+    <script>
+    $.getJSON("data.txt",function (data){
+        showF(0,data);
+        var btnNum = Math.ceil(data.length/4);
+        for(var i=0;i<btnNum;i++){
+            $("<button>").html(`第${i+1}页`).click(function (){
+                showF($(this).index(),data);
+            }).appendTo($("#ctrl"));
+        }
+    })
+    function showF(n,arr){
+        $("ul").html("");
+        for(var i=4*n;i<4*(n+1)&&i<arr.length;i++){
+            var str = `第${arr[i].id}件商品，${arr[i].name}，价格：${arr[i].price}元`;
+            $("<li>").html(str).appendTo($("ul"));
+        }
+    }
+    </script>
+</body>
+</html>
