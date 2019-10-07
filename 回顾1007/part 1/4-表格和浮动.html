@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<dl>
+	<dt>WEB前端表格和浮动</dt>
+    <dd>
+        <p>表格</p>
+        <ol>
+            <li>表格标签：<pre>
+    &lt;table&gt;  &lt;!-- 定义表格 --&gt;
+    &lt;caption&gt;  &lt;!-- 表格标题 --&gt;
+    &lt;thead&gt;  &lt;!-- 表格表头 --&gt;
+    &lt;tbody&gt;  &lt;!-- 表格正文 --&gt;
+    &lt;tfoot&gt;  &lt;!-- 表格页脚 --&gt;
+    &lt;th&gt;  &lt;!-- 表头单元格 --&gt;
+    &lt;tr&gt;  &lt;!-- 表格行 --&gt;
+    &lt;td&gt;  &lt;!-- 表格单元格 --&gt;</pre>
+            </li>
+            <li>表格属性：<pre>
+    cellspacing  ————单元间间隙(table属性)
+    cellpadding  ————表格内边距(table属性)
+    colspan="2"  ————横向合并单元格(td属性)
+    rowspan="2"  ————纵向合并单元格(td属性)</pre>
+            </li>
+            <li>表格样式：为表格和单元格设置border等样式，否则无法看到表格边框，除此外table的border-collapse样式，可以用来合并相邻单元格的边框：<pre>
+    border-collapse:collapse;  /*注意：用该样式时要把单元间间隙设为0*/</pre>
+            </li>
+            <li>较早时候很多页面是用table布局出来的，随着css功能越来越强大，不再用它们来做布局了，table在布局时也可以拥有漂亮的颜值，但却有以下的缺点：
+                <ul>
+                    <li>太深的嵌套，如table>tbody>tr>td>h3，会导致搜索引擎读取困难，而且，最直接的损失就是大大增加了代码量</li>
+                    <li>灵活性差，比如要将tr设置border等属性，是不行的，得通过td</li>
+                    <li>代码臃肿，当在table中套用table的时候，阅读代码会显得异常混乱</li>
+                    <li>混乱的colspan与rowspan，用来布局时，频繁使用他们会造成整个文档顺序混乱</li>
+                    <li>table需要多次计算才能确定好其在渲染树中节点的属性，通常要花3倍于同等元素的时间</li>
+                    <li>不够语义，无论是计算机还是阅读代码的人在阅读时都觉得非常困难</li>
+                </ul>
+            </li>
+        </ol>
+        <p>选择器扩展</p>
+        <ol>
+            <li>分组选择器：.class,#id/div .class,#id(选择类名为class的所有选择和#id的元素/选择div的所有后代中类名.class的元素和id值为#id的元素)</li>
+            <li>多条件选择器：.box1.box2(既有box1类名同时也有box2类名的元素)</li>
+            <li>子元素选择器：div>.class(选择div元素的所有子元素中有类名.class的元素)</li>
+            <li>next选择器：div+p(选择div元素的下个同级元素且为p元素的元素)</li>
+            <li>伪类选择器(状态性伪类)：a的4个伪类必须按照lvha的顺序书写，否则可能会出错
+            	<ul>
+                	<li>a:link---选择所有未被访问的链接。</li>
+                    <li>a:visited---选择所有已被访问的链接。</li>
+                    <li>a:hover---选择鼠标指针位于其上的链接。</li>
+                    <li>a:active---选择活动链接。(正在击中)</li>
+                </ul>
+            </li>
+            <li>伪元素选择器(结构性伪类)：
+                <ul>
+                    <li>p:before---在每个 p 元素的内容之前插入内容。</li>
+                    <li>p:after---在每个 p 元素的内容之后插入内容。</li>
+                    <li>注意：before和after中必须设置content(内容)和display(种类)两个样式，否则无法正确显示</li>
+                    <li>display：用来修改元素种类，block(区块元素)、inline(内联元素)、inline-block(内联块元素)、none(隐藏元素，且不占用物理空间)</li>
+                </ul>
+            </li>
+        </ol>
+        <p>让支持宽高的元素在同一行显示</p>
+        <ol>
+            <li>内联块元素：虽然img和input都是内联元素，但是他们表现的是内联块元素的效果
+                <ul>
+                    <li>可以和非区块元素在同一行显示</li>
+                    <li>支持所有的样式</li>
+                    <li>不设置宽高的时候由内容(文字图片等)撑开</li>
+                    <li>换行符会被解析</li>
+                </ul>
+            </li>
+        	<li>那么如何去掉内联块之间的空格(换行符)
+                <ul>
+                    <li>用注释、连续标签、拆分标签等方式去掉换行符(无论哪种方法都会使页面结构混乱和不利于阅读)</li>
+                    <li>用margin-left设置为负值(文字大小在改变时，间距会改变)</li>
+                    <li>设置字间距-npx(同样有字体大小问题，且在欧朋和ie7浏览器中会有问题)</li>
+                    <li>设置父元素字体大小为0，并在子元素中重新设置字体大小(是低版本谷歌浏览器有问题，由于谷歌浏览器自动更新，因此该方法是最优方法)</li>
+                </ul>
+            </li>
+            <li>浮动：元素脱离文档流，按照浮动方向移动，遇到父级边界或者相邻浮动元素停住：float：left/right/none(默认值)，由于子元素脱离文档流，结果会使父元素高度崩塌，解决浮动元素脱离文档流不占位的方法
+                <ul>
+                    <li>为父元素设置高度(高度有时是未知的，或者子元素可能会换行，优点是兼容性好)</li>
+                    <li>overflow:hidden/scroll/auto(所有浏览器都兼容，但hidden可以清除浮动但有可能隐藏有用的东西)</li>
+                    <li>在浮动元素的最后设置空标签的样式style="clear:both;"就是用来清除浮动的方法(所有浏览器都兼容，但会给父元素中增加无意义的空标签)</li>
+                    <li>同上面方法，但是利用css的伪元素来模拟空标签，低版本IE浏览器需要用.clearfix{*zoom:1}来兼容，没有其他缺点</li>
+                </ul>
+            </li>
+        </ol>
+    </dd>
+    <dt>练习：</dt>
+    <dd class="lx">
+        <ol type="I">
+            <li>创建一个表格，要求3行7列，用ps测量出每个单元格的宽高，并合并单元格成为以下样子：<img src="img/表格.jpg" width="1000" height="170"/></li>
+            <li>给一个div元素设置一个子元素div，在鼠标移入该父元素时，子元素消失隐藏，离开时恢复</li>
+            <li>用浮动做一个商品列表，要求12个商品元素每个尺寸120px*100px，一行4个，每两个商品件距离10px</li>
+        </ol>
+    </dd>
+</dl>
+</body>
+</html>

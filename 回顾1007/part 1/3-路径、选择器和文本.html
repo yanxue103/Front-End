@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<dl>
+	<dt>WEB前端路径、选择器和文本</dt>
+    <dd>
+        <p>路径：</p>
+        <ol>
+            <li>绝对路径："file:///C:/x.jpg"  相对于本台计算机机，换成另一台机器或文件夹时需要修改路径</li>
+            <li>相对路径：相对于该(代码)文件的路径，只要整个文件夹不变路径就不会改变</li>
+            <li>矩形选框工具配合快捷键可以用来切图，保存为如下图片文件
+                <ul>
+                    <li>PSD：源文件(只能用PS打开)</li>
+                    <li>JPG：不支持透明半透明，所有空白区域填充白色；使用：网页中的大图，高清图(体积大)</li>
+                    <li>GIF：支持透明，不支持半透明；使用：网页中的小图标(动画图片)</li>
+                    <li>png-8：支持透明，不支持半透明；使用：网页中的小图标</li>
+                    <li>png-24：支持透明，也支持半透明；使用：图像中存在半透明效果的图片</li>
+                </ul>
+            </li>
+            <li>img标签 —— 图片，<pre>
+    &lt;img src="" alt="" width="" height="" /&gt;
+    src(来源) —— 图片的路径；
+    width/height(宽高) —— 作用为图片设置宽高；
+    alt(代替文字)：作用无法显示图片时的替换文本；
+    vertical-align(css样式)：能够设置高度的内联元素与文字的对其位置(top/middle/bottom)</pre> 
+            </li>
+            <li>a标签 —— 超链接：<pre>
+    &lt;a href="" target=""&gt;百度&lt;/a&gt;
+    href(链接) —— 超链接的路径；
+    target(打开方式) —— 作用设置新页面的打开方式：_blank(新页面)/_self(当前页面)</pre>
+            </li>
+            <li>href和src的区别：<br/>href(引用链接) —— 指向网络资源所在的位置, 用于在当前文档和引用资源间确定联系, 如加载css和a的超链接；<br/>src(引入来源) —— 指向外部资源的位置, 用于替换当前元素, 如js脚本, 图片等元素
+            </li>
+            <li>背景样式：<pre>
+    background-image: url(bg.jpg); 背景图(url里是图片的路径)
+    background-repeat: no-repeat; 背景图是否重复
+    background-position: center 0px; 背景图位置(可以使用百分比)
+    background-attachment：fixed; 背景固定
+    background:#ff0 url(bg.jpg) no-repeat center 0px;背景复合样式(可以包含背景图的所有样式和背景颜色即固定等样式)</pre>
+            </li>
+        </ol>
+        <p>选择器</p>
+        <ol>
+            <li>我们把css样式写在style属性里的做法叫做行间样式表，该方法设置的样式只对当前元素有效(尽量不用)</li>
+            <li>在head里设置一个style标签，用选择器和样式的写法叫做内部样式表，该方法对当前页面有效(适量使用)</li>
+            <li>创建一个.css的文件，将选择器和样式写进去，并用link标签引入所有需要的页面叫做外部样式表，该方法对所有引用它的页面都有效(推荐，但文件不要太多，会让请求次数太多)<pre>
+    &lt;link href="style.css" rel="stylesheet"/&gt; //href属性的值既是路径</pre> rel 属性规定当前文档与被链接文档之间的关系。只有 "stylesheet" (文档是一个样式表)值得到了所有浏览器的支持。其他值只得到了部分地支持。
+            </li>
+        	<li>*(通配选择器)：获取所有元素；类型选择器(如div)：获取所有该种元素；类名选择器(.+class的值)：获取所有class包含该类名的元素；id选择器(#+id的值)：获取id为该值的元素</li>
+            <li>包含选择器(如#id .class)——获取范围内第一种选择器后代中第二种选择器选中的元素</li>
+            <li>选择器的优先级：<br/>
+                <ul>
+                    <li>行间样式(虽然行间样式不是选择器)>id选择器>class选择器>类型选择器>通配选择器</li>
+                    <li>包含选择器层级较多时，可以约分包含选择器：如#id .class的优先级高于#id; #id .class与.class #id的优先级相同</li>
+                    <li>如果多个选择器优先级一致：后面覆盖前面</li>
+                </ul>
+            </li>
+        </ol>
+        <p>常用文本标签和样式：</p>
+        <ol>
+            <li>常用的文字标签 <pre>
+    &lt;p&gt;/&lt;h1&gt;~&lt;h6&gt;  &lt;!--段落/标题标签--&gt;
+    &lt;b&gt;/&lt;strong&gt;  &lt;!--粗体/加重标签--&gt;
+    &lt;i&gt;/&lt;em&gt;  &lt;!--斜体/着重标签--&gt;
+    &lt;sup&gt;/&lt;sub&gt;  &lt;!--上标/下标标签--&gt;
+    &lt;ins&gt;/&lt;del&gt;  &lt;!--插入/删除标签--&gt;</pre>
+            </li>
+            <li>早期的样式是通过标签(如b、del等标签)添加的，但不同的浏览器的效果并不完全兼容，程序员则需要大量的兼容代码来为他们不同的浏览器做页面。W3C组织为了统一这些样式设置了一个非常严格的模式XHTML1.0，但是该标准过于严格，并且已经使用了旧标准的页面也会受到影响，因此受到很多程序员的抵制。为了解决这些问题，css就诞生了，css的出现让html内容与css分离开来</li>
+            <li>文字样式：<pre>
+    /*这里是注释内容*/   /*css注释，注意：在css和html的注释不能混用*/
+    font-size:14px; /*字体大小：使用px像素作为单位*/
+    line-height:120%; /*字体行高：用px像素或百分比作为单位(可用来做文字的垂直居中)*/
+    text-align:center; /*文字对其方式：left、right、center(可用来做文字的水平居中)*/
+    font-family:"微软雅黑" "黑体" /*字体：可以设置多个，(在第一个字体在本机没有时，会自动选用后续的字体)，需加引号*/
+    font-weight:200/bold; /*文字加粗：可以用数值和命令，bold(加粗)/normal(不加粗，默认值)(b和strong默认值是bold)*/
+    font-style:italic; /*文字斜体，italic(斜体)/normal(不斜体，默认值)(i和em标签的默认值就是italic)*/
+    text-indent:2em; /*文本缩进，单位一般用em(em是使用当前元素的字体大小的倍数计算的单位，如2em就是2倍字体大小)*/
+    letter-spacing:0.5em/2px; /*字间距：单位用em或px*/
+    text-decoration:underline; /*文本装饰：underline(下划线)、 overline(上划线)、 line-through(线穿过/中划线)*/</pre> 
+            </li>
+        </ol>
+    </dd>
+    <dt>练习：</dt>
+    <dd class="lx">
+        <ol type="I">
+            <li>选择一张图片，将其作为一个div元素的背景图(要求图要比div小)，并让图片在div的垂直方向居中，水平方向平铺</li>
+            <li>将下面文字按照括号内的要求用文字标签和css分别做出来：<br/>请删除该行文字(加上中划线)<br/>Z2=X2+Y2(2为上标)<br/>H2O(2为下标)<br/>中国.陕西.西安(文字斜体)<br/>你好！欢迎您的到来(文字加粗)</li>
+            <li>做一段文字在一个p元素(宽默认高80px背景黄色)水平垂直居中的效果</li>
+        </ol>
+    </dd>
+</dl>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+</head>
+<body>
+<dl>
+	<dt>WEB前端元素和盒子模型</dt>
+    <dd>
+        <p>元素的种类</p>
+        <ol>
+            <li>区块元素：
+                <ul>
+                    <li>每个元素独占一行</li>
+                    <li>支持所有的样式</li>
+                    <li>不设置宽度时宽度等于父元素宽度，不设置高度时高度为0，有内容时高度由内容撑开</li>
+                    <li>不会解析换行符</li>
+                    <li>常见的区块元素：div(盒子)、ul(无序列表)、ol(有序列表)、dl(定义列表)、li(列表的项)、p(段落)、h1~h6(网页中的标题，从大到小)、table(表格)、form(表单)、pre(源代码)、hr(分割线)</li>
+                </ul>
+            </li>
+            <li>内联元素：
+                <ul>
+                    <li>在一行有空间时，可以和非区块元素在同一行显示</li>
+                    <li>不支持宽高样式，使用部分样式(上下margin和padding等)会出现问题</li>
+                    <li>宽高完全由内容(文字图片等)撑开</li>
+                    <li>换行符会被解析</li>
+                    <li>常见的内联元素：span(行间元素)、a(超链接)、b(加粗)、strong(加重)、i(斜体)、em(着重)、sub(下标)、sup(上标)、ins(插入)、del(删除)、img(图片)、input(表单项)、label(表单标记)、br(换行)</li>
+                </ul>
+            </li>
+        </ol>
+        <p>元素的属性和样式：</p>
+        <ol>
+            <li>title属性：标记的标题，可以在鼠标移入该元素时显示出来</li>
+            <li>class属性：元素的类名，多个元素可以使用相同的类名，常用的类名：
+                <ul>
+                    <li>页头：header；标志：logo；侧栏：aside；广告：banner；导航：nav；菜单：menu；搜索：search</li>
+                    <li>滚动：scroll；页面主体：main；内容：content；列表：list；标题：title；服务：service；热点：hot</li>
+                    <li>新闻：news；下载：download；注册：regsiter；合作伙伴：partner；按钮：btn；页脚：footer</li>
+                </ul>
+            </li>
+            <li>id属性：元素的编号，不同于class，id的值在页面里是唯一的</li>
+            <li>style属性：元素的样式，用来书写css层叠样式表的，常用的样式：
+                <ul>
+                    <li>width/height：区块元素的宽/高</li>
+                    <li>color：字体颜色(赋值方式有英文、16进制数和rgb/rgba)</li>
+                    <li>background-color：背景颜色(赋值同上)</li>
+                </ul>
+            </li>
+            <li>PS的吸管工具和拾色器可以帮助我们读取图像上的颜色；火狐浏览器上也有取色工具</li>
+            <li>浏览器的开发者工具中可以查看代码，打开方式为F12。查看器功能的左侧为html代码，右侧的规则是我们选中元素的样式(当出现重复的样式时，失效的样式会用划线划掉)</li>
+        </ol>
+        <p>盒子模型：</p>
+        <ol>
+            <li>PS的矩形选框工具和信息可以帮我们测量元素的尺寸</li>
+            <li>盒子模型图：<br/><img src="img/盒子模型.png" width="850" height="450"/></li>
+            <li>content：盒子内容，元素内容的区域，由width和height组成</li>
+            <li>padding：内填充，元素内容和边框之间的区域，由上(padding-top)右(padding-right)下(padding-bottom)左(padding-left)4个方向的内填充组成；<br/>padding是它们的复合样式，在设置4个值时，分别代表上、右、下、左；3个值时缺省最后一个左由右代替；2个值时继续缺省最后一个下由上代替；1个值时缺省最后一个值左右由上下代替</li>
+            <li>margin：外边距，该元素与其他元素之间的间距，由上(margin-top)右(margin-right)下(margin-bottom)左(margin-left)4个方向的外边距组成；<br/>margin是它们的复合样式，在设置1-4个值时，表现的和padding相同</li>
+            <li>border：边框，就是元素的最外层结构，由上(border-top)右(border-right)下(border-bottom)左(border-left)4个方向的边框组成；<br/>border是它们的复合样式，在设置1-4个值时，表现的和padding相同，但每个方向的边框又由宽度(border-top-width)样式(border-top-style)和颜色(border-top-color)复合而成<br/>也可以用宽度(border-width)样式(border-style)颜色(border-color)的方式复合，然后每个再拆分成4个方向<br/>注意：border的集合样式中必须包含width、style和color三个值，否则不能正确显示
+            </li>
+            <li>块状元素常用的居中方法：margin:0 auto;</li>
+            <li>外边距重叠(margin-collapse)：相邻的两个盒子(可能是兄弟关系也可能是祖先关系)的上下外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为折叠，并且因而所结合成的外边距称为折叠外边距，折叠结果遵循下列计算规则：
+                <ul>
+                    <li>两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值</li>
+                    <li>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值</li>
+                    <li>两个外边距一正一负时，折叠结果是两者的相加的和</li>
+                    <li>消除父子元素边距重叠的方式：给父元素加边框；给父元素加padding</li>
+                </ul>
+            </li>
+            <li>盒模型的兼容问题和解决办法：
+                <ul>
+                    <li>在各种浏览器中，实际盒模型有两种结构，一种是常规盒模型(也叫内容盒模型)；一种是怪异盒模型(也叫边框盒模型)</li>
+                    <li>盒模型的公式(以水平方向为例)：盒子的宽 = width+padding-left + padding-right + border-left-width + border-right-width</li>
+                    <li>其中在低版本的ie浏览器中用的是怪异盒模型，怪异盒模型中我们为元素设置的宽实际是盒子的宽；而标准浏览器的常规盒模型中我们为元素设置的宽是内容的宽</li>
+                    <li>两种不同的盒模型会导致我们设置相同的样式的页面在不同浏览器中显示的不同，为了解决这个问题，css3中提出一个样式box-sizing: border-box/content-box(默认)，该样式用来修改盒模型的种类</li>
+                    <li>由于该样式是css3样式，低版本浏览器不兼容，因此一般我们会将盒模型的值设置成border-box(怪异盒模型)来统一效果，而且该盒模型在页面布局计算时也会很方便</li>
+                </ul>
+            </li>
+        </ol>
+    </dd>
+    <dt>练习：</dt>
+    <dd class="lx">
+        <ol type="I">
+            <li>用一个区块元素的下边框画出一个蓝色三角形</li>
+            <li>在页面中做出psd文件(练习)中的元素，要求在ps中测量其中所有数值(宽、高、内填充、文字大小和各处颜色值)</li>
+            <li>设置两个div元素，父元素(盒子大小300px*300px，背景黄色)和子元素(宽高100px，背景红色)，要求用内填充、外边距等样式使子元素恰好在父元素正中心</li>
+        </ol>
+    </dd>
+</dl>
+</body>
+</html>
