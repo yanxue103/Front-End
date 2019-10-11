@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .parent{
+        width:100px;
+        height: 100px;
+        background-color: brown;
+        border: 1px #0000ff solid;
+        float:left;
+    }
+    .another{
+        width: 120px;
+        height: 120px;
+        border: 1px #0000aa soild;
+        background-color: aqua;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">
+            <div class="parent"></div>
+            <div class="parent"></div>
+            <div class="parent"></div>
+            <div class="another"></div>
+<!-- 解决父元素高度崩塌的方法1：给父元素设置高度 -->
+<!-- 局限1：不确定高度是无法使用 -->
+<!-- 局限2：在内容数量不确定是无法使用 -->
+            </div>
+</body>
+</html>

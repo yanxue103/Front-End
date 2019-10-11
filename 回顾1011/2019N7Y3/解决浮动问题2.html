@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .parent{
+        width:100px;
+        height: 100px;
+        background-color: brown;
+        border: 1px #0000ff solid;
+    }
+    .another{
+        width: 120px;
+        height: 120px;
+        border: 1px black soild;
+        /* background-color: aqua; */
+        float: right;
+    }
+    </style>
+</head>
+<body>
+    <div>
+            <div class="parent">1</div>
+            <div class="parent">2</div>
+            <div class="parent">3</div>
+            <div class="another">nkfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfykfieubfbjbfjksbfkegfuigr4hoi;dkcnmz,cbjbfy</div>
+<!-- 解决父元素高度崩塌的方法1：给父元素设置高度 -->
+<!-- 局限1：不确定高度是无法使用 -->
+<!-- 局限2：在内容数量不确定是无法使用 -->
+            </div>
+</body>
+</html>
+<!-- 解决一个元素重叠溢出方式 -->
+<!--将父元素设置为BFC盒子（不能用浮动方法，用overflow） -->
+<!-- 在父元素有一处部分是 -->

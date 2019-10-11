@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent{
+            border:1px #000 soild;
+        }
+            .parent::after{
+                width:100px;
+                height: 100px;
+                background-color: brown;
+                border: 1px #0000ff solid;
+                float:left;
+            }
+
+            .another{
+                width: 120px;
+                height: 120px;
+                border: 1px #0000aa soild;
+                background-color: aqua;
+            }
+            </style>
+</head>
+<body>
+        <div class="parent::after">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <span style="display: block; clear:both;"></span>
+            </div>
+            <div class="another"></div>
+            <!-- 为父元素设置after伪元素，在该元素上设置清除浮动 -->
+            <!-- 低版本IE浏览器不兼容 -->
+</body>
+</html>
