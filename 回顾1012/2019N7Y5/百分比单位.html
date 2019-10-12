@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .parent1{
+        width: 200px;
+        height: 200px;
+        background-color: brown;
+        padding-left: 100px;
+        margin-left: 200px;
+        padding-top: 30px;
+    }
+    .child1{
+        width:10%;/*    20px */
+        height: 30%;  /*    60px */ 
+        background-color: blueviolet;
+    }
+    .child2{
+        width: 20%;/*    40px */
+        height: 20%;/*    40px */
+        background-color: yellow;
+        padding-left: 20%; /*    20px */
+        margin-left: 10%; /*    20px */
+        padding-top: 10%;/*    30px */
+    }
+    .parent2{
+        width: 1000px;
+        height: 1000px;
+        background-color: blue;
+        background-image: url("da.jpg");
+        background-repeat: no-repeat;
+        background-position: 30% 50%;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent1">
+        <div class="child1"></div>
+        <div class="child2"></div>
+    </div>
+    <!-- 子元素宽高=父元素宽高乘上子元素的宽高百分比 -->
+    <!-- 子元素的padding和margin=父元素的宽*子元素的padding和margin的百分比 -->
+    <div class="parent2"></div>
+    <!-- 背景定位的X/Y=（父元素宽/高-图片宽/高）*背景定位百分比 -->
+</body>
+</html>

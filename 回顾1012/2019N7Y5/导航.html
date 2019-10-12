@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+    <style>
+    .nav{
+        width: 600px;
+        margin: 0 auto;
+        /* background-color: cadetblue; */
+    }
+    .nav li{
+        width: 120px;
+        float: left;
+    }
+    .nav a{
+        display: block;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        background-color: darkturquoise;
+        font-size: 18px;
+    }
+    .nav a:hover{
+        color: darkturquoise;
+        background-color: white;
+    }
+    /* 导航：字能点（内联元素）& 框能点 */
+    </style>
+</head>
+<body>
+    <ul class="nav clearfix">
+        <li><a href="#">主页</a></li>
+        <li><a href="#">介绍</a></li>
+        <li><a href="#">案例</a></li>
+        <li><a href="#">新闻</a></li>
+        <li><a href="#">联系</a></li>
+    </ul>
+    <!-- 提高优先级，class比伪类高 -->
+</body>
+</html>
