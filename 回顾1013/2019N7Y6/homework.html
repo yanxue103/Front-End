@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .parent .box1{
+        width: 800px;
+        height: 35px;
+        background-color: #00ccff;
+        margin: 0 auto;
+    }
+    .parent .white{
+        width: 800px;
+        height: 5px;
+        background-color: tomato;
+        margin: 0 auto;
+    }
+    ul{
+        margin: 0;
+        padding: 0;
+        width: 700px;
+        height: 35px;
+        background-color: green;
+        margin: 0 auto;
+        /* overflow: hidden; */
+    }
+    li{
+        width: 100px;
+        float: left;
+        overflow: hidden;
+    }
+    a{
+        display: block;
+        height: 35px;
+        font-size: 20px;
+        line-height: 35px;
+        color: white;
+        text-align: center;
+    }
+    a:hover{
+        background: yellowgreen;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="box1"></div>
+        <div class="white"></div>
+            <ul class="clearfix">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">HOME</a></li>
+            </ul>
+    </div>
+</body>
+</html>

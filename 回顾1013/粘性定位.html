@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    .div{
+        position: -webkit-sticky;
+        position: sticky;
+        /* top: 0; */
+        bottom: 0;
+        padding: 50px;
+        font-size: 40px;
+        color: red;
+        background-color: #cae8ca;
+        border: 2px solid #4CAF50;
+    }
+    p#absolute{
+        position: absolute;
+        right: 20px;
+        top: 30px;
+    }
+    p#fixed{
+        position: fixed;
+        right: 40px;
+        top: 50px;
+        color: #4CAF50;
+    }
+    </style>
+</head>
+<body>
+    <p id="absolute">ABSOLUTE</p>
+    <p id="fixed">FIXED</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <p>HOME</p>
+    <div class="div">sticky</div>
+    <!-- static:静态定位的元素不会受到 top, bottom, left, right影响。 -->
+    <!--  fixed :元素的位置相对于浏览器窗口是固定位置,即使窗口是滚动的它也不会移动. -->
+    <!-- relative :相对定位元素的定位是相对其正常位置。 -->
+    <!-- absolute :绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>: -->
+    <!-- position: sticky; 基于用户的滚动位置来定位 -->
+</body>
+</html>
