@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        width: 100px;
+        height: 100px;
+        resize: none;
+        /* 不能缩放 */
+    }
+    div{
+        width:300px;
+        height: 300px;
+        background-color: yellowgreen;
+        resize:both;
+        overflow: auto;
+    }
+    </style>
+</head>
+<body>
+    <select name="" id="">
+        <option value="city1">北京</option>
+        <option value="city2">上海</option>
+        <option value="city3" selected>广州</option>
+        <!-- selected 默认选项 -->
+    </select>
+    <!-- value作用将数据往后台传，eg：  select=city1 -->
+
+    <input type="text">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+
+    <!-- cols 列数(英文)     rows 行数 -->
+    <textarea name="" id="" cols="30" rows="10" class="box1"></textarea>
+
+    <div></div>
+</body>
+</html>

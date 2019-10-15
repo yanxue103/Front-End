@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css"/>
+    <style>
+    body{
+        background: url("form_bg.jpg") no-repeat center top #0f2439;
+    }
+    form{
+        width: 500px;
+        margin: 0 auto;
+        padding-top: 58px;
+    }
+    .logo{
+        display: block;
+        margin: 0 auto;
+    }
+    h1{
+        font-size: 30px;
+        color: white;
+        margin: 48px 0 38px 0;
+    }
+    p{
+        font-size: 14px;
+        color: white;
+        margin-bottom: 30px;
+    }
+    .text{
+        display: block;
+        border: #555f68 1px solid;
+        width: 100%;
+        padding: 0;
+        height: 34px;
+        background-color: rgba(0,0,0,0.4);
+        color: #656e73;
+        padding-left: 11px;
+        margin-bottom: 9px;
+    }
+    .text:focus{
+        color: #8d969b;
+        border: #1e5f99 1px solid;
+    }
+    span{
+        color: white;
+        font-size: 14px;
+    }
+    .submit{
+        width: 100%;
+        padding: 0;
+        border: 1px #31a8e0 solid;
+        height: 34px;
+        font-size: 14px;
+        color: white;
+        background-color: #088cca;
+        cursor: pointer;
+    }
+    a.login{
+        width: 100%;
+        display: block;
+        border: 1px #314151 solid;
+        height: 34px;
+        font-size: 14px;
+        color: #01aefd;
+        background-color: #0e1f31;
+        cursor: pointer;
+        text-align: center;
+        line-height: 32px;
+    }
+    </style>
+</head>
+<body>
+    <form action="#" method="GET">
+        <img src="pic1.jpg" alt="" class="logo">
+        <h1>创建账号</h1>
+        <p>开启你的冒险，开启你的冒险，开启你的冒险</p>
+        <input type="text" class="text" placeholder="身份证号码"/>
+        <input type="text" class="text" placeholder="姓名"/>
+        <input type="text" class="text" placeholder="邮箱地址"/>
+        <input type="password" class="text" placeholder="密码"/>
+        <input type="password" class="text" placeholder="确认密码输入"/>
+        <input type="text" class="text" placeholder="输入验证码"/>
+        <div>
+            <input type="checkbox">
+            <span>我同意各项条款</span>
+        </div>
+        <input type="submit" value="免费注册战网通行证" class="submit"/>
+        <a href="#" class="login">已经有通行证了?</a>
+    </form>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .test:focus{
+        /* border: none; */
+        border-bottom: 1px yellowgreen dashed; /*虚线 dashed*/
+    }
+    .button{
+        cursor:pointer;
+        /* 鼠标样式：手型 */
+    }
+    .nota{
+        cursor: not-allowed;
+        /* 鼠标样式：禁用 */
+    }
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: yellowgreen;
+        cursor: move;
+        /* 鼠标样式：移动 */
+    }
+    span{
+        cursor: help;
+        /* 鼠标样式：帮助 */
+    }
+    p{
+        cursor: wait;
+        /* 鼠标样式：等待 */
+    }
+    </style>
+</head>
+<body>
+    <input type="text" class="test"/>
+    <input type="button" value="按钮" class="button"/>
+    <input type="button" value=">" class="nota" disabled/>
+    <div></div>
+    <span>?</span>
+    <p>的文件拷贝</p>
+</body>
+</html>

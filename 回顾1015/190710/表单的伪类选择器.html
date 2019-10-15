@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .text:focus{
+        border: none;
+        border-bottom: 1px #f00 dashed;
+    }
+    .button{
+        cursor: pointer;
+    }
+    .nota{
+        cursor: not-allowed;
+    }
+    div{
+        width: 150px;
+        height: 150px;
+        background-color: red;
+        cursor: move;
+    }
+    span{
+        cursor: help;
+    }
+    p{
+        cursor: wait;
+    }
+    </style>
+</head>
+<body>
+    <input type="text" class="text"/>
+    <input type="button" value="按钮" class="button"/>
+    <input type="button" value=">" class="nota" disabled/>
+    <div></div>
+    <span>?</span>
+    <p>快速扩大开放</p>
+</body>
+</html>

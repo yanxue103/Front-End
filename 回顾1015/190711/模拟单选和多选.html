@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* input[type="radio"]{
+        width: 50px;
+        height: 50px;
+        border: 1px red solid;
+    } */
+    span{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        border: 1px red solid;
+        vertical-align: middle;
+        border-radius: 50%;
+    }
+    input[type="radio"]{
+        position: absolute;
+        left: -9999px;
+    }
+    input[type="radio"]:checked+span{
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+    <label><input type="radio" name="sex"/><span></span>男</label>
+    <label><input type="radio" name="sex"/><span></span>女</label>
+    
+</body>
+</html>
