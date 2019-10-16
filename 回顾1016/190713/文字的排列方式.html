@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p:nth-child(2){
+        direction:rtl;
+        unicode-bidi:bidi-override;
+    }
+    p:nth-child(3){
+        width: 15px;
+    }
+    </style>
+</head>
+<body>
+    <p>这段文字是从左向右排列的</p>
+    <p>这段文字是从右向左排列的</p>
+    <p>这段文字是从上向下排列的</p>
+</body>
+</html>

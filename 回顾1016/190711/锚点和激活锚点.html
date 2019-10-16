@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 4000px;
+    }
+    div{
+        width: 150px;
+        height: 150px;
+        background: red;
+        position: absolute;
+        font-size: 50px;
+        color: white;
+    }
+    div:target{
+        background: blue;
+    }
+    div:nth-of-type(1){
+        left: 0;
+        top: 500px;
+    }
+    div:nth-of-type(2){
+        left: 0;
+        top: 1500px;
+    }
+    div:nth-of-type(3){
+        left: 0;
+        top: 2000px;
+    }
+    </style>
+</head>
+<body>
+    <a href="#div1">div1</a>
+    <a href="#div2">div2</a>
+    <a href="#div3">div3</a>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+</body>
+</html>

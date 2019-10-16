@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .parent{
+        width: 100px;
+        height: 30px;
+        border: 2px #000 solid;
+        text-align: center;
+        line-height: 30px;
+        font-size: 17px;
+        border-radius: 18px;
+    }
+    .parent::after{
+        display: inline-block;
+        content: "=>";
+        width: 0;
+        opacity: 0;
+        /* 透明度为0 */
+        transition: all 0.3s linear;
+    }
+    .parent:hover::after{
+        width: 25px;
+        opacity: 1;
+    }
+    </style>
+</head>
+<body>
+    <div class="parent">搜索</div>
+</body>
+</html>
