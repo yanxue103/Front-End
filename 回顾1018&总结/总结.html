@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>知识点总结篇</title>
+    <style>
+    div{
+        width: 100px;
+        height: 200px;
+    }
+    #div1{
+        background-color: yellowgreen;
+        margin: 20px;
+    }
+    #div2{
+        background-color: tomato;
+        margin: 30px;
+    }
+    li{
+        font-family: "微软雅黑";
+        font-size: 18px;
+    }
+    table,td,th{
+        border: 3px #060100 solid;
+        border-collapse: collapse;
+        /* 和在table的类那写 cellpadding="0" cellapscing="0"*/
+    }
+    table{
+        color: #ffffce;
+    }
+    td,th{
+        width: 42px;
+        height: 28px;
+
+    }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <li>外边距重叠(margin-collapse)：相邻的两个盒子(可能是兄弟关系也可能是祖先关系)的上下外边距可以结合成一个单独的外边距。这种合并外边距的方式被称为折叠，并且因而所结合成的外边距称为折叠外边距，折叠结果遵循下列计算规则：
+        <ul>
+            <li>两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值</li>
+            <li>两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值</li>
+            <li>两个外边距一正一负时，折叠结果是两者的相加的和</li>
+            <li>消除父子元素边距重叠的方式：给父元素加边框；给父元素加padding</li>
+        </ul>
+    </li>
+
+    <li>图片保存格式：
+        <ul>
+            <li>PSD：源文件(只能用PS打开)</li>
+            <li>JPG：不支持透明半透明，所有空白区域填充白色；使用：网页中的大图，高清图(体积大)</li>
+            <li>GIF：支持透明，不支持半透明；使用：网页中的小图标(动画图片)</li>
+            <li>png-8：支持透明，不支持半透明；使用：网页中的小图标</li>
+            <li>png-24：支持透明，也支持半透明；使用：图像中存在半透明效果的图片</li>
+        </ul>
+    </li>
+
+    <li>href和src的区别：
+        <ul>
+        <li>href(引用链接) —— 指向网络资源所在的位置, 用于在当前文档和引用资源间确定联系, 如加载css和a的超链接；</li>
+        <li>src(引入来源) —— 指向外部资源的位置, 用于替换当前元素, 如js脚本, 图片等元素</li>
+        </ul>
+    </li>
+
+    <li>创建一个.css的文件，将选择器和样式写进去，并用link标签引入所有需要的页面叫做外部样式表，该方法对所有引用它的页面都有效(推荐，但文件不要太多，会让请求次数太多)<pre>
+            &lt;link href="style.css" rel="stylesheet"/&gt; //href属性的值既是路径</pre> rel 属性规定当前文档与被链接文档之间的关系。只有 "stylesheet" (文档是一个样式表)值得到了所有浏览器的支持。其他值只得到了部分地支持。
+                    </li>
+    <br>
+    <li>选择器的优先级：<br/>
+        <ul>
+            <li>行间样式(虽然行间样式不是选择器)>id选择器>class选择器>类型选择器>通配选择器</li>
+            <li>包含选择器层级较多时，可以约分包含选择器：如#id .class的优先级高于#id; #id .class与.class #id的优先级相同</li>
+            <li>如果多个选择器优先级一致：后面覆盖前面</li>
+        </ul>
+    </li>
+
+    <li>文字样式：<pre>
+            font-size:14px; /*字体大小：使用px像素作为单位*/
+            line-height:120%; /*字体行高：用px像素或百分比作为单位(可用来做文字的垂直居中)*/
+            text-align:center; /*文字对其方式：left、right、center(可用来做文字的水平居中)*/
+            font-family:"微软雅黑" "黑体" /*字体：可以设置多个，(在第一个字体在本机没有时，会自动选用后续的字体)，需加引号*/
+            font-weight:200/bold; /*文字加粗：可以用数值和命令，bold(加粗)/normal(不加粗，默认值)(b和strong默认值是bold)*/
+            font-style:italic; /*文字斜体，italic(斜体)/normal(不斜体，默认值)(i和em标签的默认值就是italic)*/
+            text-indent:2em; /*文本缩进，单位一般用em(em是使用当前元素的字体大小的倍数计算的单位，如2em就是2倍字体大小)*/
+            letter-spacing:0.5em/2px; /*字间距：单位用em或px*/
+            text-decoration:underline; /*文本装饰：underline(下划线)、 overline(上划线)、 line-through(线穿过/中划线)*/</pre> 
+    </li>
+
+    <li>表格属性：<pre>
+            cellspacing  ————单元间间隙(table属性)
+            cellpadding  ————表格内边距(table属性)
+            colspan="2"  ————横向合并单元格(td属性)
+            rowspan="2"  ————纵向合并单元格(td属性)</pre>
+    </li>
+
+    <table>
+            <tbody>
+                <tr>
+                    <td colspan="2"></td>
+                    <td></td>
+                    <td colspan="2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="3"></td>
+                </tr>
+                <tr>
+                    <td rowspan="2"></td>
+                    <td></td>
+                    <td rowspan="2"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <li>伪类选择器(状态性伪类)：a的4个伪类必须按照顺序书写
+            	<ul>
+                	<li>a:link---选择所有未被访问的链接。</li>
+                    <li>a:visited---选择所有已被访问的链接。</li>
+                    <li>a:hover---选择鼠标指针位于其上的链接。</li>
+                    <li>a:active---选择活动链接。(正在击中)</li>
+                </ul>
+            </li>
+            <li>伪元素选择器(结构性伪类)：
+                <ul>
+                    <li>p:before---在每个 p 元素的内容之前插入内容。</li>
+                    <li>p:after---在每个 p 元素的内容之后插入内容。</li>
+                    <li>注意：before和after中必须设置content(内容)和display(种类)两个样式，否则无法正确显示</li>
+                    <li>display：用来修改元素种类，block(区块元素)、inline(内联元素)、inline-block(内联块元素)、none(隐藏元素，且不占用物理空间)</li>
+                </ul>
+            </li>
+</body>
+</html>
