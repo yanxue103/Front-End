@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        #ball{
+            position: absolute;
+            left:200px;
+            top:50px; 
+            width: 20px;
+            height: 20px;
+            background-color:green;
+            border-radius: 50%;
+        }
+        #startBox{
+            position: absolute;
+            left:200px;
+            top:50px; 
+            width: 10px;
+            height: 10px;
+            background-color:red;
+            border-radius: 50%; 
+        }
+
+        #endBox{
+            position: absolute;
+            left:500px;
+            top:300px; 
+            width: 10px;
+            height: 10px;
+            background-color:red;
+            border-radius: 50%; 
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" value="  走 " id="btnGo">
+    <div id="startBox"></div>
+    <div id="endBox"></div>
+    <div id="ball"></div>
+
+    
+<script src="js/jquery-3.2.1.min.js"></script>
+<script>
+
+function pao(){
+    let x1 = 200;
+    let y1 = 50;
+    let x2 = 500;
+    let y2 = 300;
+
+    let xEnd = x2-x1;
+    let yEnd = y2-y1;
+    let p =  xEnd*xEnd /(2*yEnd); 
+
+    let y = 0;
+    let myTimer = setInterval(()=>{
+        y++;
+        x = Math.sqrt(2*p*y);
+        if(y>=y2-y1){
+            clearInterval(myTimer);
+        }
+  
+        $("#ball").css({
+            left:x+x1,
+            top:y+y1
+        });
+
+    },10);
+
+}
+
+$(function(){
+    $("#btnGo").click(function(){
+        pao();
+    });
+})
+
+</script>
+</body>
+</html>

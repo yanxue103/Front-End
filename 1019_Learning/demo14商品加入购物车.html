@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品加入购物车</title>
+    <style>
+    #thing{
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        background-color: tomato;
+        border: 1px black solid;
+        border-radius: 30%;
+        display: none;
+    }
+    div#car{
+        width: 80px;
+        height: 80px;
+        position: fixed;
+        border: 2px solid black;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 30%;
+    }
+    #num{
+        position: absolute;
+        left:30px;
+        top:-20px;
+        width:20px;
+        height: 20px;
+        font-weight: bold;
+    }
+    </style>
+</head>
+<body>
+    <div id="car">
+        <span id="num">3</span>
+    </div>
+    <input type="button" value="  加入购物车  " id="btn">
+    <img src="img/gotoLearning.jpg" alt="" id="thing">
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+
+
+    let thingsCount = $("#num").innerHTML;  //商品数量
+
+    window.onload = function(){
+        $("#btn").onclick = function(event){
+            let evt = event || window.event;
+            let startP ={
+                left:evt.pageX,
+                top:evt.pageY
+            }
+            let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+            let endP = {
+                left:$("#car").offsetLeft+scrollLeft,
+                top:$("#car").offsetTop+scrollTop
+            }
+            let p = getP(startP,endP);
+            
+            $("#thing").style.left = startP.left+"px";
+            $("#thing").style.top = startP.top+"px";
+            $("#thing").style.display = "block";
+
+            go(startP,endP,p);
+        }
+
+    }
+
+    function getP(startP,endP){
+    let newEndPoint =  {
+        left:endP.left- startP.left,
+        top:endP.top- startP.top
+    }
+    return  newEndPoint.top*newEndPoint.top /(2*newEndPoint.left);
+}
+
+function go(startP,endP,p){
+    let left1 = 0;
+    let top1 = 0;
+    
+    let myTimer = setInterval(()=>{
+
+        left1++;
+        top1 =  Math.sqrt(2*p*left1); //y^2 = 2px;
+
+        if(left1>=endP.left-startP.left){
+            left1 = endP.left-startP.left;
+            window.clearInterval(myTimer);
+            $("#thing").style.display = "none";
+            thingsCount++;
+            $("#num").innerHTML = thingsCount;
+        }
+    
+        $("#thing").style.left = `${left1+startP.left}px`;
+        $("#thing").style.top = `${top1+startP.top}px`;
+
+    },1);
+}
+
+function $(str){
+    if(str[0]=="#"){
+        return document.getElementById(str.substring(1));
+    }else if(str[0]=="."){
+        return document.getElementsByClassName(str.substring(1));
+    }else{
+        return document.getElementsByTagName(str);
+    }
+}
+
+    </script>
+</body>
+</html>

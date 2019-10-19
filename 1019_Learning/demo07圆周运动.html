@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆周运动</title>
+    <style>
+    #center{
+        position: absolute;
+        left: 295px;
+        top: 295px;
+        width: 10px;
+        height: 10px;
+        background-color: yellowgreen;;
+        border-radius: 50%;
+    }
+    #ball{
+        position: absolute;
+        left: 290px;
+        top: 90px;
+        width: 20px;
+        height: 20px;
+        background-color: orange;
+        border-radius: 50%;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" id="btnGo" value="  出发  ">
+    <div id="center"></div>
+    <div id="ball"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+        //半径：200，中心点（300，300）
+        function CircleStart(){
+            let degree = 0;
+            let basetLeft = 300;
+            let baseTop = 100;
+            let r = 200;
+            setInterval(()=>{
+        //一、数据处理
+            degree++;
+            let left1 = basetLeft + r * Math.sin(degree * Math.PI/180 );
+            let top1 = baseTop + r - r * Math.cos(degree * Math.PI/180 );
+            //二、边界处理
+            if(degree==360){
+                degree = 0;
+            }
+            $("#ball").css({
+                left:left1-10,
+                top:top1-10
+            });
+        },20);
+    }
+    $(function (){
+        $("#btnGo").click(function(){
+            CircleStart();
+        });
+    })
+        </script>
+</body>
+</html>

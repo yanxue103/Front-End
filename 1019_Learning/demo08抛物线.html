@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>抛物线</title>
+    <style>
+        /* #bg{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            border: 1px black solid;
+        } */
+    #ball{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        background-color: orange;
+        border-radius: 50%;
+    }
+    /* #btnGo{
+        z-index: 2;
+    } */
+    </style>
+</head>
+<body>
+    <!-- <div id="bg"></div> -->
+    <input type="button" value="出发" id="btnGo">
+    <div id="ball"></div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+    function parabola(){
+        let p = 300;
+        let x = 0;
+        let myTimer = setInterval(()=>{
+            x++;
+            y = Math.sqrt(2*p*x);
+
+            if(x>=400){
+                clearInterval(myTimer);
+            }
+
+            $("#ball").css({
+                left:x,
+                top:y
+            });
+            // this.document.createElement("div").css({width:1,height:1,left:x,top:y,backgroundColor:black}).appendChild("#bg");
+        },20)
+    }
+    $(function(){
+        $("#btnGo").click(function(){
+            parabola();
+        });
+    })
+    </script>
+</body>
+</html>

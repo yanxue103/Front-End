@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象封装轮播图</title>
+    <style>
+        #box{
+            width: 400px;
+            height: 300px;
+        }
+        #box2{
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+        <div id="box">
+           
+        </div>
+        <br/>
+        <div id="box2">
+           
+        </div>
+</body>
+</html>
+<script src="js/mover.js"></script>
+<script>
+
+class Banner{
+  
+    constructor(boxDom,obj){
+       
+        let defaultObj = {
+            
+            imgDoms:[],//存放动态创建的img标签
+            liDoms:[],//存放动态创建的li标签
+           
+            width:400,
+            height:300,
+            imgs:["img/01.jpg","img/02.jpg","img/03.jpg"],
+            type:"fade", //"fade,slide"
+          
+            douColor:"white",
+            douHighColor:"skyblue",
+            douSize:20,
+            isCircle:true,
+            //动态
+            currIndex :0,//当前图片的下标
+            timeSpace:2000,
+            myTimer:null
+        }
+        this.boxDom = boxDom;
+        for(let key in defaultObj){
+
+            this[key] = (obj[key]==undefined?defaultObj[key]:obj[key]) ;
+        }
+        this.render();
+        this.addEvent();
+        this.autoPlay();
+    }
+    
+    render(){
+        
+        this.boxDom.style.position = "relative";
+        this.boxDom.style.overflow = "hidden";
+        
+        
+        let divDom = document.createElement("div");
+        divDom.style.cssText = `
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+        `;
+        this.boxDom.appendChild(divDom);
+      
+        for(let i in this.imgs){
+            let imgDom = document.createElement("img");
+            imgDom.src = this.imgs[i];
+            imgDom.style.cssText = `
+                position: absolute;
+                left: 0;
+                top:0;
+                width: 100%;
+                height: 100%;
+            `;
+            switch(this.type){
+               case  "fade" : imgDom.style.opacity = 0;break;
+               case  "slide" :imgDom.style.left = this.width+"px";break;
+            }
+            if(i=="0"){
+                switch(this.type){
+                    case  "fade" : imgDom.style.opacity = 1;;break;
+                    case  "slide" :imgDom.style.left = "0";break;
+                }
+            }
+            divDom.appendChild(imgDom);
+            this.imgDoms.push(imgDom);
+        }
+
+       
+        let ulDom = document.createElement("ul");
+        ulDom.style.cssText =`
+            list-style: none;
+            position: absolute;
+            left: ${(this.width-this.douSize*this.imgs.length*2)/2}px;
+            top: ${this.height-this.douSize*2}px;
+            width: 100%;
+            height: 100%;
+        `;
+        this.boxDom.appendChild(ulDom);
+        
+        for(let i in this.imgs){
+            let liDom = document.createElement("li");
+            liDom.style.cssText = `
+                float: left;
+                margin-right: ${this.douSize}px;
+                width: ${this.douSize}px;
+                height: ${this.douSize}px;
+                background-color: ${this.douColor};
+            `;
+            if(this.isCircle){
+                liDom.style.borderRadius="50%";
+            }
+            if(i=="0"){
+                liDom.style.backgroundColor = this.douHighColor;
+            }
+            ulDom.appendChild(liDom);
+            this.liDoms.push(liDom);
+        }
+    }
+
+    autoPlay(){
+        this.myTimer =  setInterval(()=>{
+            this.goImg(this.currIndex+1);
+        },this.timeSpace);
+    }
+
+    stopPlay(){
+        clearInterval(this.myTimer);
+    }
+
+    goImg(index){
+        
+        let outIndex = this.currIndex;
+        this.currIndex = index;
+       
+        if(this.currIndex>this.imgs.length-1){
+            this.currIndex = 0;
+        }
+
+      
+        switch(this.type){
+            case  "fade" : fadeInOut(this.imgDoms[outIndex],this.imgDoms[this.currIndex],this.timeSpace/3);break;
+            case  "slide" :slide(this.imgDoms[outIndex],this.imgDoms[this.currIndex],-1*this.width,this.timeSpace/3);break;
+        }   
+      
+        this.liDoms[outIndex].style.backgroundColor = this.douColor;
+        this.liDoms[this.currIndex].style.backgroundColor = this.douHighColor;
+    }
+
+    //添加事件
+    addEvent(){
+        this.boxDom.onmouseover = ()=>{
+            this.stopPlay();
+        }
+
+        this.boxDom.ssonmouseout = ()=>{
+            this.autoPlay();
+        }
+
+        for(let i=0;i<this.liDoms.length;i++){
+            this.liDoms[i].onclick = ()=>{
+               this.goImg(i);
+            }
+        }
+    }
+}
+
+
+window.onload = function(){
+   
+    let b1 = new Banner(
+        document.getElementById("box"),
+        { 
+            type:"slide",
+            timeSpace:1000,
+            isCircle:false
+        }
+    );
+
+    let b2 = new Banner(
+        document.getElementById("box2"),
+        { 
+            width:500,
+            height:200,
+            douSize:15,
+            douColor:"gray",
+            imgs:["img/05.jpg","img/04.jpg","img/03.jpg","img/02.jpg","img/01.jpg"]
+        }
+    );
+   
+}
+
+
+</script>

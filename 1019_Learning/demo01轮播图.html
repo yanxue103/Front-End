@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        #box{
+            position: relative;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+        #box div{
+            position: absolute;
+            left: 0;
+            top:0;
+            width: 100%;
+            height: 100%;
+        }
+        #box div img{
+            position: absolute;
+            left: 400px;
+            top:0;
+            width: 100%;
+            height: 100%;
+        }
+        #box div img:nth-child(1){
+            left: 0px;
+        }
+        #box ul{
+            list-style: none;
+            position: absolute;
+            left: 50px;
+            top: 250px;
+            width: 100%;
+            height: 100%;
+        }
+        #box ul li{
+            float: left;
+            margin-left: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        #box ul li:nth-child(1){
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div>
+            <img src="img/01.jpg" alt="">
+            <img src="img/02.jpg" alt="">
+            <img src="img/03.jpg" alt="">
+            <img src="img/04.jpg" alt="">
+            <img src="img/05.jpg" alt="">
+        </div>
+        <ul>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+            <li> </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script src="js/mover.js"></script>
+<script>
+
+//定时器
+let myTimer = null;
+//当前图片的下标
+let currIndex = 0;
+let imgDoms = document.getElementById("box").firstElementChild.children;
+let liDoms = document.getElementById("box").lastElementChild.children;
+    
+//自动播放
+function autoPlay(){
+    myTimer =  setInterval(()=>{
+       
+        let outIndex = currIndex;
+        currIndex++;
+       
+        if(currIndex>4){
+            currIndex=0;
+        }
+
+     
+        slide(imgDoms[outIndex],imgDoms[currIndex],-400,1000);
+        
+        liDoms[outIndex].style.backgroundColor = "white";
+        liDoms[currIndex].style.backgroundColor = "skyblue";
+    },1500);
+}
+
+//停止
+function stopPlay(){
+    clearInterval(myTimer);
+}
+
+//跳转到指定图片
+function goImg(index){
+   
+        let outIndex = currIndex;
+        currIndex = index;
+        
+        if(currIndex>4){
+            currIndex = 0;
+        }
+
+        slide(imgDoms[outIndex],imgDoms[currIndex],-400,1000);
+        
+        liDoms[outIndex].style.backgroundColor = "white";
+        liDoms[currIndex].style.backgroundColor = "skyblue";
+}
+
+window.onload = function(){
+    autoPlay();
+    document.getElementById("box").onmouseover = function(){
+        stopPlay();
+    }
+
+    document.getElementById("box").onmouseout = function(){
+        autoPlay();
+    }
+
+    for(let i=0;i<liDoms.length;i++){
+        liDoms[i].onclick = function(){
+            goImg(i);
+        }
+    }
+}
+
+
+</script>

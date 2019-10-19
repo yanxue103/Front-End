@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #ball{
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        background-color: orangered;
+        border-radius: 20%;
+    }
+    </style>
+</head>
+<body>
+    <input type="button" value="  Go  " id="btn">
+    <div id="ball"></div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        function parabola(){
+            let p = 700;
+            let y = 0;
+
+            let myTimer = setInterval(() => {
+                y ++;
+                let x = Math.sqrt(2*p*y);
+
+                if(y>=400){
+                    clearInterval(myTimer);
+                }
+                $("#ball").css({
+                    left:x,
+                    top:y
+                });
+            }, 20);
+        }
+        $(function (){
+            $("#btn").click(function (){
+                parabola();
+            });
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>已知起点和终点的抛物线运动</title>
+    <style>
+    #ball{
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        background-color: tomato;
+        left: 200px;
+        top: 50px;
+        border-radius: 30%;
+    }
+    div#d11{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: yellowgreen;
+        top: 50px;
+        left: 200px;
+        border-radius: 30%;
+    }
+    div#d22{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background-color: yellowgreen;
+        top: 300px;
+        left: 500px;
+        border-radius: 30%;
+    }
+    </style>
+</head>
+<body>
+    <div id="d11"></div>
+    <div id="d22"></div>
+    <input type="button" value="  Go  " id="btn">
+    <div id="ball"></div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+    function parabola(){
+        let x1 = 200;
+        let x2 = 500;
+        let y1 = 50;
+        let y2 = 300;
+
+        let endX = x2-x1;
+        let endY = y2-y1;
+        let p = endX*endX /(2*endY);
+
+        let y = 0;
+            let myTimer = setInterval(()=>{
+                y ++;
+                x = Math.sqrt(2*p*y);
+
+                if(y>=y2-y1){
+                    clearInterval(myTimer);
+                }
+                $("#ball").css({
+                    left:x+x1,
+                    top:y+y1
+                });
+            }, 10);
+        }
+        $(function (){
+            $("#btn").click(function (){
+                parabola();
+            });
+    })
+    </script>
+</body>
+</html>
