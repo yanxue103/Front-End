@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    用户名：<input type="text" name="" id="username"><br>
+    密码：<input type="password" name="" id="userpass"><br>
+    <input type="button" value="登录" onclick="saveUser()"/>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+    //cookie:保存数据在硬盘上，识别用户的身份（和后端的session结合）
+    
+    //保存cookie（就是使用document对象的cookie属性）
+    // decument.cookie = '键=值;expires=日期的GMT格式；;path=可以访问的路径;domain=可以访问的域名'
+    //需要把用户名保存7天
+
+
+    //  document.cookie = "键=值;expires=到期时间点（GMT格式的字符串）;path=;domain=";
+
+    //path是设置当前cookie可以被哪些路径下的html文件访问。
+    //1、如果不设置path，即默认情况下，是当前路径下网页及其子路径下的网页都可以访问。
+    //2、如果设置了path，那么，就cookie就可以被path对应的路径下的文件及其子路径下的文件访问：
+        //1）、path=/goods  ； 表示 网站根目录下的goods路径下，所有文件可以反问，及goods下的子路径的文件也可以访问 
+        //2）、path=/ ，表示整个网站都能使用（ / 表示根路径）：                                          。
+    // document.cookie = "username=jzm;expires=到期时间点（GMT格式的字符串）;path=/";
+
+
+    //
+    //  document.cookie = "键=值;expires=到期时间点（GMT格式的字符串）;path=;domain=";
+
+    //path是设置当前cookie可以被哪些路径下的html文件访问。
+    //1、如果不设置path，即默认情况下，是当前路径下网页及其子路径下的网页都可以访问。
+    //2、如果设置了path，那么，就cookie就可以被path对应的路径下的文件及其子路径下的文件访问：
+        //1）、path=/goods  ； 表示 网站根目录下的goods路径下，所有文件可以反问，及goods下的子路径的文件也可以访问 
+        //2）、path=/ ，表示整个网站都能使用（ / 表示根路径）：                                          。
+    // document.cookie = "username=jzm;expires=到期时间点（GMT格式的字符串）;path=/";
+
+    </script>
+</body>
+</html>

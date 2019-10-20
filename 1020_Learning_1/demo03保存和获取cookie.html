@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>保存和获取cookie</title>
+</head>
+<body>
+    <input type="button" value="保存cookie" onclick="saveUser()"/>
+    <input type="button" value="再保存一个cookie" onclick="saveUser2()"/>
+    <input type="button" value="获取cookie" onclick="getUser()"/>
+    <input type="button" value="删除cookie" onclick="removeUser()"/>
+
+    <script>
+    function saveUser(){
+        let d = new Date();
+        d.setDate(d.getDate()+7);
+        document.cookie = 'username=wahh;expires='+d.toGMTString();
+
+    }
+    function saveUser2(){
+        let d = new Date();
+        d.setDate(d.getDate()+7);
+        document.cookie = 'usesrpass=123;expires='+d.toGMTString();
+       
+    }
+    function getUser(){
+        console.log(document.cookie);
+    }
+    function removeUser(){
+        let d = new Date();
+        d.setDate(d.getDate()-1);
+        document.cookie = 'username=sakjdsb;expires='+d.GMTString();
+    }
+    </script>
+</body>
+</html>

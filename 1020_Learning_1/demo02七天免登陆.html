@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>七天免登陆</title>
+</head>
+<body>
+    用户名：<input type="text" name="" id="username"><br>
+    密码：<input type="password" name="" id="userpass"><br>
+    <input type="button" value="登录" onclick="saveUser()"/>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+    
+        function saveUser(){
+            //后端验证用户名和密码是否正确
+            //保存cookie
+            let d = new Date();
+            d.setDate(d.getDate()+7);
+            document.cookie = 'username='+$("#username").val()+';expires='+d.toGMTString();
+            //跳转到首页
+            location.href = "index.html";
+
+        }
+
+    
+
+    </script>
+</body>
+</html>

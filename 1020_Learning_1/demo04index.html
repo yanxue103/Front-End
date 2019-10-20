@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>主页</title>
+    <style>
+    #welcomeBox,#loginBox{
+        display: none;
+    }
+    </style>
+</head>
+<body>
+    <div id="welcomeBox">
+        欢迎您：<span>薛亲</span>
+        <input type="button" id="btnLogout" value="注销"/>
+
+    </div>
+    <div id="loginBox">
+        请<a href="demo02七天免登陆.html">登录</a>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script>
+    function getUser(){
+        let str = document.cookie;
+        let arr = str.split("; ");
+        for(let i in arr){
+            if(arr[i].startsWith("username=")){
+                return arr[i].split("=")[1];
+            }
+        }
+        return null;
+    }
+    
+    function initUI(){
+        let str = getUser();
+        if(str!=null){
+            $("#welcomeBox span").html(str);
+            $("#welcomeBox").show();
+            $("#loginBox").hide();
+        }else{
+            $("#welcomeBox").hide();
+            $("#loginBox").show();
+        }
+    }
+
+    $(function (){
+        initUI();
+        $("#btnLogout").click(function (){
+            let d = new Date();
+            d.setDate(d.getDate()-1);
+            document.cookie = 'username=asdb;expires='+d.toGMTString();
+            initUI();
+        });
+    })
+    </script>
+</body>
+</html>
