@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册页面</title>
+</head>
+<body>
+    用户名：<input type="text" id="username" name="username"
+     onblur="checkuser(this)" value="懒羊羊">*
+    <span></span><br>
+    密码：<input type="password" id="userpass" name="pass" value="123"><br>
+    重复密码：<input type="password" id="checkpass" value="123">*<br>
+    <input type="button" id="regBtn" value="注册"/>
+    <div id="msgBox" style="color: red;display: none;"></div>
+
+    <script>
+    function checkuser(obj){
+        let xhr = new XMLHttpRequest();
+
+        //设置请求参数
+
+        xhr.open("get","checkuser02.php?username="+$("#username").value,true);
+
+        //设置回调函数
+
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState==4 && xhr.status==200){
+                //接收请求
+                if(xhr.responseText=="1"){
+                    obj.nextElementSibling.innerHTML = "用户名已存在";
+                }else{
+                    obj.nextElementSibling.innerHTML = "用户名可以使用";
+                }
+            }
+        }
+        //发送请求
+        xhr.send();
+
+    }
+
+    function check(){
+        //非空判断
+        if($("#username").value=="" ||$("#userpass").value==""|| $("checkpass").value==""){
+            alert("亲，请把带*的都输入");
+            return false;
+            // 阻止浏览器的默认行为
+        }
+        //判断用户名是否符合规则
+        //判断密码和重复密码是否一致
+    }
+
+    $("#regBtn").onclick = function (){
+        let xhr = new XMLHttpRequest();
+        
+        xhr.open("post","regSave.php",true);   //设置请求参数
+        
+        xhr.onreadystatechange = function(){//设置回调函数
+            if(xhr.readyState==4 && xhr.status==200){
+                //接收响应
+                if(xhr.responseText=="1"){
+                    alert("注册成功！");
+                    location.href = "login.html";
+                }else{
+                    $("#msgBox").innerHTML = "好遗憾，注册失败!";
+                    $("#msgBox").style.display = "block";
+                }
+            }
+        }
+        xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        //发送请求
+        let str = `username=${$("#username").value}&userpass=${$("#userpass").value}`;
+        xhr.send(str);
+    }
+
+    function $(str){
+        if(str.charAt(0)=="#"){
+            return document.getElementById(str.substring(1));
+        }else if(str.charAt(0)=="."){
+            return document.getElementsByClassName(str.substring(1));
+        }else{
+            return document.getElementsByTagName(str);
+        }
+    }
+    </script>
+
+</body>
+</html>

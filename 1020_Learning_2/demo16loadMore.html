@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>loadMore</title>
+
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <input type="button" id="btn" value="查看剩余内容">
+
+    <script src="js/ajaxTools.js" type="text/javascript"></script>
+    <script type="text/javascript">
+     function getData(pageIndex){
+         ajax_xx({
+             url: "news.php",
+             params: "pageIndex="+pageIndex,
+             func:function (str){
+                 $("#box").innerHTML += str;
+             }
+         });
+     }
+
+     window.onload = function(){
+         getData(1);
+
+         $("#btn").onclick = function (){
+             getData(2);
+             this.style.display = "none";
+         }
+     }
+
+     function $(str){
+         if(str.charAt(0)=="#"){
+            return document.getElementById(str.substring(1));
+         }else if(str.charAt(0)=="."){
+            return document.getElementsByClassName(str.substring(1));
+         }else{
+            return document.getElementsByTagName(str);
+         }
+     }
+    </script>
+</body>
+</html>
