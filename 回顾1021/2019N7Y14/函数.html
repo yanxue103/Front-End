@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(){
+            //code...
+            alert(123);
+        }
+        //fun1();  //直接调用函数   计算机读到这句话时，函数内部的代码就会执行
+
+
+
+        //事件调用有名函数
+        document.onclick = fn1;  //页面点击时，弹出123；
+
+        //事件调用匿名函数
+        document.onclick = function(){
+            alert(456);
+        }
+
+         //若该函数会在多个地方调用，则使用有名函数，若只会在此处使用则用匿名函数
+        </script>
+</body>
+</html>

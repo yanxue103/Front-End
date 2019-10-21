@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- 
+        window.onload=function(){}
+        这个函数意思是在整个页面加载完成之后执行函数中的代码
+     -->
+</head>
+<body>
+    <input type="button" value="Number" id="btn1"/>
+    <button id="btn2" >按钮</button>
+    <script>
+        var oBtn2 = document.getElementById("btn2");
+        function fn1(){
+            alert("100+");
+        }
+    document.getElementById("btn1").onclick = fn1;
+    oBtn2.onclick = function(){
+        alert("Link");
+    }
+    </script>
+</body>
+</html>
