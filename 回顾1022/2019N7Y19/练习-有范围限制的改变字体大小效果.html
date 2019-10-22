@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    p{
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+    <button id="btn1">变小</button><button id="btn2">变大</button>
+    <p id="p1">电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅电饭锅</p>
+    <script>
+    // 点击变小时，iFont-1，然后赋值给字体大小；点击变大时，iFont+1，然后赋值给字体大小
+    var iFont = 20;
+    var oBtn1 = document.getElementById("btn1");
+    var oBtn2 = document.getElementById("btn2");
+    var oP = document.getElementById("p1");
+    oBtn1.onclick = function (){
+        if(iFont>12){
+            oP.style.fontSize = --iFont + "px";
+        }
+    }
+    oBtn2.onclick = function (){
+        if(iFont<28){
+            oP.style.fontSize = ++iFont + "px";
+        }
+    }
+    </script>
+</body>
+</html>

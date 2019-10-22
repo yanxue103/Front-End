@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>布尔值开关</title>
+    <style>
+    button{
+        width: 100px;
+        height: 30px;
+    }
+    div{
+        width: 200px;
+        height: 500px;
+        background-color: green;
+        display: none;
+    }
+    </style>
+</head>
+<body>
+
+    <button id="btn1">下拉框</button>
+    <div id="div1"></div>
+    <script>
+    var oBtn = document.querySelector("#btn1");
+    var oDiv = document.querySelector("#div1");
+    var bOn = true;   //布尔值
+    oBtn.onclick = function (){
+        // if(bOn){
+        //     oDiv.style.display = "block";
+        // }else{
+        //     oDiv.style.display = "none";
+        // }
+        oDiv.style.display = bOn ? "block" : "none";
+        bOn = !bOn;
+    }
+    </script>
+</body>
+</html>

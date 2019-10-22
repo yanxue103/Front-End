@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="te1"/>
+    <button id="btn1">确定事件</button>
+    <p id="p1">弹出内容</p>
+    <script>
+    var oTe = document.getElementById("te1");
+    var oBtn = document.getElementById("btn1");
+    var oP = document.getElementById("p1");
+    var attr = "";
+    oBtn.onclick = function (){
+        attr = oTe.value;
+        oP[attr] = function (){
+            alert(oP.innerHTML);
+        }
+    }
+    </script>
+</body>
+</html>

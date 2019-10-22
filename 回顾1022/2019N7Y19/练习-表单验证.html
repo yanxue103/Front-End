@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="te1"/>
+    <input type="text" id="te2"/>
+    <button id="btn1">弹出</button>
+    <script>
+    // 弹出第一个输入框的值 + "在" + 第二个输入框的值
+    // 如果第一个输入框内为空，则弹出 "输入内容不能为空"
+    var oTe1 = document.getElementById("te1");
+    var oTe2 = document.getElementById("te2");
+    var oBtn1 = document.getElementById("btn1");
+    oBtn1.onclick = function (){
+        // if(oTe1.value == ""){
+        //     alert("输入内容不能为空");
+        // }else{
+        //     alert(oTe1.value + "在" + oTe2.value);
+        // }
+        // oTe1.value == "" ? alert("输入内容不能为空") : alert(oTe1.value + "在" + oTe2.value);
+        alert(oTe1.value == "" ? "输入内容不能为空" : oTe1.value + "在" + oTe2.value);
+    }
+    </script>
+</body>
+</html>

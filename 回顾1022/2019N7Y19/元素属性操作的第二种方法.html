@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+    var oDiv = document.getElementById("div1");
+    // 元素属性操作的第一种方法：
+    // oDiv.id   读操作
+    // oDiv.id = '新值';   写操作
+    // 元素属性操作的第二种方法：
+    // oDiv["id"]  //读操作
+    // oDiv["id"] = "div2";
+    var id = "title";
+    // oDiv.id = "123";
+    oDiv[id] = "123";
+    </script>
+</body>
+</html>
