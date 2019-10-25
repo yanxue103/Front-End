@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{
+        list-style: none;
+        font-size: 12px;
+        display: block;
+        width: 48px;
+        height: 48px;
+        background-color: yellowgreen;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    </style>
+</head>
+<body>
+    <ul id="ul1"></ul>
+    <script>
+        var oUl = document.getElementById("ul1");
+        var aLi = oUl.getElementsByTagName("li");
+        var str = "";
+        for(var i=0;i<7;i++){
+            str += "<li>Xueyan你真好看</li>";
+        }
+        oUl.innerHTML = str;
+        for(var i=0;i<7;i++){
+            aLi[i].style.left = 50*i + "px";
+
+            if(i<4){
+                aLi[i].style.top = i*50 + "px";
+            }
+            else{
+                aLi[i].style.top= (6-i)*50 + "px";
+            }
+
+            // 或者 aLi[i].style.top= (i<4 ? i : 6-i)*50 + "px";
+
+        }
+        </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{
+        width: 100px;
+        height: 140px;
+        display: block;
+        background: url("img/pic.jpg") no-repeat;
+        position: absolute;
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    <ul id="ul1"></ul>
+    <script>
+        var str = "";
+        var oUl = document.getElementById("ul1");
+        var aLi = oUl.getElementsByTagName("li");
+        for(var i = 0; i < 100 ; i++){
+            str += "<li></li>"
+        }
+        oUl.innerHTML = str;
+        for(var i = 0;i < 100;i ++){
+            aLi[i].style.left = (i%10)*101 +"px";
+            aLi[i].style.top = 141*(Math.floor(i/10)) +"px";
+            // aLi[i].style.backgroundPosition = -((i%10)*52)+"px " -(52*(Math.floor(i/10)))+"px";
+            aLi[i].style.backgroundPosition = -(i%10*101)+"px "+ -(141*(Math.floor(i/10)))+"px";
+        }
+        for(var i=0;i < 100;i++){
+            aLi[i].onmouseover = function(){
+                this.style.opacity = 1;
+            }
+        }
+        </script>
+</body>
+</html>
