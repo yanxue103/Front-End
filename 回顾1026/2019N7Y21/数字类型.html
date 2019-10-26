@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Number() 将其他数据类型转换成数字的方法
+    var s1 = "100";
+    var s2 = "001";
+    var s3 = "a11";
+    var s4 = "11a";
+    // 非数字字符串（如a11）用Number方法辉得到NaN（Not a Number），但是它转换之后类型变成了数字，但它却不是个数字
+    //  NaN != NaN    NaN与其自身不相等
+    // 数字转布尔值，0 和 NaN 转换为 假，其他数字为 真。
+    // 布尔值转数字，真 为 1， 假 为 0。
+    console.log(Number(s3),Number(s4));
+    console.log(Number(s1),Number(s2));
+    console.log(Number(null)); // 0
+    console.log(Number(undefined)); // NaN
+    // 除了数组(特殊），对象类型转换为数字都是 NaN
+    
+    var arr = []; //0
+    var arr = [null]; // 0
+    var arr = [undefined]; // 0
+    var arr = [2]; //2
+    var arr = ["a2"]; // 数组中字符串等于字符串的方法，==> NaN
+    // 空数组和只有一个数字的数组转换为数字为数字，多个数的数组转换为数字仍为 NaN
+
+    // NaN 好诡异哦
+    </script>
+</body>
+</html>

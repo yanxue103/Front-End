@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    console.log(null == undefined); // true
+    // 判断null和undefined时，不会发生数据类型转换，但他们在定义上是相等的
+    consolo.loge(null == 0); // false
+    console.log("123" == 123); // true
+    console.log(true == 2); // 1 != 2 ==> false
+    console.log(document.body == 1); //对象转数字=>NaN != 1 , false
+    console.log("123px" == "123px"); //两边都是字符串时，不会发生转换，用每位 Unicode值比较，故相等
+    console.log([] == []); // false 
+
+    var arr = [];
+    console.log(arr = arr); // true
+    // 两个对象比较，不会发生数据类型转换，如果是同一个对象，则为真，否则为假
+    console.log([] == ![]); // 0 == 0 , true
+    </script>
+</body>
+</html>

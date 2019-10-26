@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input[type="text"]{
+            width: 200px;
+            height: 50px;
+        }
+    button{
+        width: 100px;
+        height: 50px;
+        background-color: yellowgreen;
+    }
+    </style>
+</head>
+<body>
+    <input type="text">
+    <button>搜索</button>
+    <script>
+    var oBtn = document.getElementsByTagName("button")[0];
+    var oIpt = document.getElementsByTagName("input")[0];
+    oBtn.onclick = function (){
+        if(Number(oIpt.value) == Number(oIpt.value)){
+            alert("是数字");
+            if(parseInt(oIpt.value) == oIpt.value){
+                alert("是整数");
+            }
+        }
+        else {
+            alert("非数字");
+        }
+    }
+    </script>
+</body>
+</html>

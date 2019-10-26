@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arr = [{
+        "a" : 1,
+        "b" : 2,
+        "c" : 3
+    },{
+        "d" : 4,
+        "e" : 5
+    }];//数组中的对象
+    var obj = {
+        "arr1" : ["a","b","c"],
+        "arr2" : ["d","e"]
+    };//对象中的数组
+
+
+    //下面的很重要：
+    for ( var i = 0;i < arr.length;i++){
+        for(var attr in arr[i]){
+            console.log(arr[i][attr]);
+        }
+    } //遍历数组中的对象
+    for(var attr in obj){
+        for(var i = 0;i < obj[attr].length;i++){
+            console.log(obj[attr][i]);
+        }
+    } //遍历对象中的数组
+
+    </script>
+</body>
+</html>

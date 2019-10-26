@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var i1 = "10";
+    var i2 = "10.01";
+    var i3 = "100px";
+    var i4 = "10px100";
+    var i5 = "10.1.1.1";
+    var i6 = "10101";
+    console.log(Number(i1),Number(i2),Number(i3)); // 10  10.01  NaN
+    // 字符串转数字的强制类型转换 parseInt()、 parseFloat()
+    console.log(parseInt(i1),parseInt(i2),parseInt(i3),parseInt(i4),parseInt(i5)); // 10  10  100  10  10
+    console.log(parseFloat(i1),parseFloat(i2),parseFloat(i3),parseFloat(i4),parseFloat(i5));// 10  10.01  100  10  10.1
+    console.log(parseInt(i6,2));  // 21  ,（i6，2）意为将i6转换成int型数字，给出的i6 为2进制数字，默认则i6为10进制数字
+    </script>
+</body>
+</html>
