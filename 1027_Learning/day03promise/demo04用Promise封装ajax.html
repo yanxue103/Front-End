@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+//Promise是ES6中新增的一个原生（JavaScript语言）的对象。
+// 就跟我以前学的ES3中的 Date，Array，RegExp等等是一样的。
+//Promise对象是一个异步的对象，解决的就是层层回调的问题。
+
+//Promise的用法：
+// new Promise(function(resolve,reject){
+//     //resolve:是个函数，是异步操作成功时，调用的函数
+//     //reject:是个函数，是异步操作失败时，调用的函数
+
+// });
+
+//Promise对象有个方法 then();
+// then()方法有两个参数，分别就是resolve和reject对应实参
+// then()方法的返回值，是它里面回调函数里返回的promise对象。
+
+function fn1(){
+    console.log("fn1开始");
+    let p = new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            console.log("fn1的异步操作也执行完毕了");
+            // if(异步操作成功){//到底什么是成功，有赖于异步操作做的事情。
+            if(3<2){
+                resolve();//成功时，调用
+            }else{
+                reject();//失败时，调用
+            }
+        },2000)
+    });
+    console.log("fn1结束");
+    return p;
+}
+
+function success(){
+    console.log("成功"); 
+}
+
+function fail(){
+    console.log("失败"); 
+}
+
+
+window.onload = function(){
+    fn1().then(success,fail);
+}
+
+</script>

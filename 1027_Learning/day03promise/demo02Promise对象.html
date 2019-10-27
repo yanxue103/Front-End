@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+//Promise是ES6中新增的一个原生（JavaScript语言）的对象。
+// 就跟我以前学的ES3中的 Date，Array，RegExp等等是一样的。
+//Promise对象是一个异步的对象，解决的就是层层回调的问题。
+
+//Promise的用法：
+// new Promise(function(resolve,reject){
+//     //resolve:是个函数，是异步操作成功时，调用的函数
+//     //reject:是个函数，是异步操作失败时，调用的函数
+
+// });
+
+//Promise对象有个方法 then();
+// then()方法有两个参数，分别就是resolve和reject对应实参
+// then()方法的返回值，是它里面回调函数里返回的promise对象。
+
+function fn1(){
+    console.log("fn1开始");
+    let p = new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            console.log("fn1的异步操作也执行完毕了");
+            resolve();
+        },2000)
+    });
+    console.log("fn1结束");
+    return p;
+}
+
+// fn1().then(fn2);
+
+function fn2(){
+    console.log("fn2开始");
+    let p = new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            console.log("fn2的异步操作也执行完毕了");
+            resolve();
+        },2000)
+    });  
+    console.log("fn2结束");
+    return p;
+}
+
+function fn3(){
+    console.log("fn3开始");
+    let p = new Promise(function(resolve,reject){
+        setTimeout(()=>{
+            console.log("fn3的异步操作也执行完毕了");
+            resolve();
+        },2000)
+    }); 
+    console.log("fn3结束");
+    return p;
+}
+
+function fn4(f){
+    console.log("fn4开始");
+    console.log("fn4结束");
+}
+
+
+window.onload = function(){
+    //如果使用promise的话，将会是如下写法：
+    //promise会把主从关系变成同级关系。
+    fn1().then(fn2).then(fn3).then(fn4);
+}
+
+</script>
