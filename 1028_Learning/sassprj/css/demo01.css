@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.box {
+  width: 200px;
+  font-size: 14px;
+  border-top: 1px solid red; }
+
+.box2 {
+  font-size: 16px;
+  border-top: 1px solid red; }
+
+.box3 {
+  font-size: 12px;
+  border-top: 1px solid red; }
+
+#box3 {
+  width: 300px; }
+  #box3 a {
+    color: red; }
+  #box3 ul {
+    list-style: none; }
+    #box3 ul li {
+      float: left; }
+
+#box4 {
+  border-bottom: 2px solid red;
+  border-top: 1px dotted blue; }
+
+#box6 {
+  width: 300px;
+  height: 500px;
+  background-color: blue;
+  border: 1px solid gray; }
+
+#box7, #box8 {
+  width: 300px;
+  height: 500px;
+  background-color: blue;
+  font-size: 14px; }
+
+#box8 {
+  color: blue; }
+
+.col-0 {
+  width: 0px;
+  left: 150px; }
+
+.col-1 {
+  width: 200px;
+  left: 300px; }
+
+.col-2 {
+  width: 400px;
+  left: 450px; }
+
+.col-3 {
+  width: 600px;
+  left: 600px; }
+
+.col-4 {
+  width: 800px;
+  left: 750px; }
+
+.col-5 {
+  width: 1000px;
+  left: 900px; }
+
+.col-6 {
+  width: 1200px;
+  left: 1050px; }
+
+.col-7 {
+  width: 1400px;
+  left: 1200px; }
+
+.col-8 {
+  width: 1600px;
+  left: 1350px; }
+
+.icon-sucess {
+  background-image: url(sucess.jpg); }
+
+.icon-error {
+  background-image: url(error.jpg); }
+
+.icon-warning {
+  background-image: url(warning.jpg); }
+
+/*# sourceMappingURL=demo01.css.map */

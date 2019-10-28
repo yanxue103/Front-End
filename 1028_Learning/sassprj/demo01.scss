@@ -1,0 +1,82 @@
+
+$baseFontSize:14px;
+$direction:top;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.box{
+    width: 200px;
+    font-size: $baseFontSize;
+    border-#{$direction}: 1px solid red;
+}
+
+.box2{
+    font-size: $baseFontSize + 2;
+    border-#{$direction}: 1px solid red;
+}
+
+.box3{
+    font-size: $baseFontSize - 2;
+    border-#{$direction}: 1px solid red;
+}
+
+#box3{
+    width:300px;
+    a{
+        color: red;
+    }
+    ul{
+        list-style: none;
+        li{
+            float: left;
+        }
+    }
+}
+
+#box4{
+    border:{
+        bottom: 2px solid red;
+        top:1px dotted blue;
+    }
+}
+
+@mixin blueBox($w:300px,$h:250px) {
+    width: $w;
+    height: $h;
+    background-color:blue;
+}
+
+#box6{
+    @include blueBox($h:500px);
+    border:1px solid gray;
+}
+
+#box7{
+    @include blueBox($h:500px);
+    font-size: $baseFontSize;
+}
+
+#box8{
+    @extend #box7;
+    color: blue;
+}
+
+$column:9;
+
+@for $i from 0 to $column{
+    .col-#{$i} {
+        width: $i * 200px;
+        left: ($i + 1)*150px;
+    }
+}
+
+$icons: sucess error warning;
+
+@each $item in $icons {
+    .icon-#{$item} {
+        background-image: url(#{$item}.jpg);
+    }
+}
