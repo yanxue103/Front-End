@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <div></div>
+        <img src="img/1.png" alt="" width="390" height="480"/>
+    </div>
+    <div id="div2">
+        <div></div>
+        <img src="img/1.png" alt="" width="390" height="480"/>
+    </div>
+    <button></button>
+    <script>
+    var arr = ["img/1.png","img/2.png","img/3.png","img/4.png"];
+    //根据数组arr的数据生成对应的按钮button，并放在div里(1,2,3,4)
+    //点击按钮时，img变成对应路径的图片
+    var aBtn = document.getElementsByTagName("button");
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oDiv = oDiv1.getElementsByTagName("div");
+    var oImg = oDiv.getElementsByTagName("img");
+    var str = '';
+    for (var i=0;i<arr.length;i++){
+        str += "<button>"(i+1)+"</button>";
+    }
+    oDiv.innerHTML = str;
+    for(var i=0;i<aBtn.length;i++){
+        aBtn[i].index = i;
+        aBtn.
+    }
+        oBtn.onclick = function (){
+        if(i=4){
+            oDiv.img.src = arr[1];
+        }else {
+            oDiv.img.src = arr[i+1];
+        }
+    }
+    
+    
+    </script>
+</body>
+</html>

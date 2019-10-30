@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(a,b){
+            var arr = [];
+            if(a < b){
+                arr.push(a);
+                arr.push(b);
+                //arr =[a,b];
+            }
+            else{
+                arr.push(b);
+                arr.push(a);
+                //arr = [b,a];
+            }
+            return arr;
+        }
+        console.log(fn1(-3,-5)); //[-5,-3]
+        </script>
+</body>
+</html>

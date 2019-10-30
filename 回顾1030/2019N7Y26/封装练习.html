@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //要求：封装一个函数，3个参数（a，b，c），如果参数a的结果为“+”，则输入b和c的和，如果参数a的结果为“-”，则输出b和c的差
+    
+    function fn1(a,b,c){
+        if(a=="+"){
+            console.log(b+c);
+        }else if (a=="-"){
+            console.log(b-c);
+        }
+    }
+    fn1("+",5,7);
+    fn1("-",5,7);
+    </script>
+</body>
+</html>
