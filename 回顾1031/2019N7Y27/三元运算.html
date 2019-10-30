@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fn1(n){
+        return n<100 ? n : 100;
+    }
+    function fn2(n){
+        if(n<100){
+            return n;
+        }else {return 100;}
+    }
+    function fn3(n){
+        return n<100  && n || 100;
+    }
+    console.log(fn1(78));
+    console.log(fn2(190));
+    console.log(fn3(100));
+    </script>
+</body>
+</html>

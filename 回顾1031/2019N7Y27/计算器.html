@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fn1(){
+        var answer = 0;
+        if(arguments[0]=="+"){
+            for(var i=1;i<arguments.length;i++){
+                answer += arguments[i];
+            }
+        }
+        else if(arguments[0]=="-"){
+            for(var i=2;i<arguments.length;i++){
+                arguments[1] -= arguments[i];
+                answer = arguments[1];
+            }
+        }
+            return answer;
+    }
+    console.log(fn1("-",20,2,3,4));   //11
+    console.log(fn1("+",20,2,3,4));    //29
+    </script>
+</body>
+</html>

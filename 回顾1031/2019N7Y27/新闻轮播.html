@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button>next page</button>
+    <script>
+    var arr = ["News1","News2","News3","News4","News5","News6","News7","New8","News9","News10","News11","News12","News13","News14","News15","News16","News17","News18"];
+    // var oDiv = document.getElementsByTagName("div")[0];
+    // var str = "";
+    var oUl = document.getElementById("ul1");
+    var aLi = oUl.getElementsByTagName("li");
+    var oBtn = document.getElementsByTagName("button");
+    // for(var i=0;i<Math.ceil(arr.length/5);i++){
+    //     str += "<button>第"+(i+1)+"页</button>"
+    // }
+    for(var i=0;i<5;i++){
+        // var j = i;
+        // aLi[i].innerHTML = arr[i];
+        aLi[i].index = i;
+        oBtn.onclick = function (){
+            // this.index += 5; 
+            this.innerHTML = arr[this.index];          
+        }
+    }
+
+
+
+    </script>
+</body>
+</html>

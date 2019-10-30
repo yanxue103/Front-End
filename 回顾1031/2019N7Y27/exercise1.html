@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    li{
+        width: 100px;
+        height: 100px;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <ul id="ul1"></ul>
+    <script>
+    var arr=["red","black","blue","yellow","green"];
+    var oUl = document.getElementById("ul1");
+    var aLi = oUl.getElementsByTagName("li");
+    var str = "";
+    for(var i=0;i<22;i++){
+        str += "<li></li>";
+    }
+    oUl.innerHTML = str;
+    for(var i=0;i<aLi.length;i++){
+            aLi[i].style.backgroundColor = arr[i%5];
+            aLi[i].index = i;
+            aLi[i].onclick = function (){
+            this.style.backgroundColor = "gray";
+        }
+    }
+    </script>
+</body>
+</html>

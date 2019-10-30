@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function bijiao(a,b,f){
+        return f(a,b);
+    }
+    console.log(bijiao(3,5,Math.max));
+    console.log(bijiao(23,15,Math.min));
+    function jueduizhi(a,b,f){
+        return f(a)+f(b);
+    }
+    console.log(jueduizhi(4,-8,Math.abs));
+    </script>
+</body>
+</html>
