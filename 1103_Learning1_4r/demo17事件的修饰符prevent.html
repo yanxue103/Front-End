@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <a href="http://www.bing.com" @click.prevent="show">必应搜索</a>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        methods:{
+            show:function(){
+                alert("我想去必应")
+            }
+        }
+    });
+        </script>
+</body>
+</html>

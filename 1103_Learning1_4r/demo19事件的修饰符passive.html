@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #parentBox{
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+        overflow: auto;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+    <a href="http://wwwbing.com" @click.passive="show">bing搜索</a>   
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello",
+            ord:0
+        },
+        methods:{
+            show:function(){
+                alert("bing搜索");
+                event.preventDefault();
+            }
+        }
+    });
+    //不要把 .passive 和 .prevent 一起使用，因为 .prevent 将会被忽略，同时浏览器可能会向你展示一个警告。
+    //请记住，.passive 会告诉浏览器你不想阻止事件的默认行为。
+        </script>
+</body>
+</html>

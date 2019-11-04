@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="box">
+                <!-- 声明式渲染：你只需要告诉计算机你要把哪个数据显示在哪个地方 -->
+                <p>{{msg}}:{{name}}</p>
+            </div>
+            <input type="button" value="改变" v-on:click="change()">
+            <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+            <script>
+
+                //实例化vue对象时，会明确出来：
+                //  数据：data属性   、    方法：methods
+                let vm = new Vue({
+                    el:"#box",//el->element的缩写
+                    data:{
+                        msg:"hello",
+                        name:"小笨蛋"
+                    },
+                    methods:{
+                        change:function(){
+                            this.msg="world";
+                        },
+                    }
+                });
+            </script>
+</body>
+</html>

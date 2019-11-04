@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+            <!-- 声明式渲染：你只需要告诉计算机你要把哪个数据显示在哪个地方 -->
+            <p v-text="name"></p>
+            <p>{{name}}</p>
+            <p>hello:{{name}}</p>
+            <p v-html="str"></p>
+            <p v-bind:id="tt"></p>
+            <p>{{age+1}}</p>
+        <input type="button" value="改变" v-on:click="change()">
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script>
+            let vm = new Vue({
+                el:"#box",//el->element的缩写
+                data:{
+                    name:"小笨蛋",
+                    str:"<h1>我是标题</h1>",
+                    tt:"pId01",
+                    age:20
+                }
+            });
+        </script>
+</body>
+</html>

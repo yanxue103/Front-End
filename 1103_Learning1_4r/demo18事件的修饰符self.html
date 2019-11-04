@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #parentBox{
+        width: 500px;
+        height: 500px;
+        background-color: pink;
+    }
+    #childrenBox{
+        width: 200px;
+        height: 200px;
+        background-color: deepskyblue;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+    <div id="parentBox" @click.self="clickParent">
+        <div id="childrenBox" @click="clickMe"></div>
+    </div>    
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        methods:{
+            clickParent:function(){
+                alert("父亲被点了")
+            },
+            clickMe:function(){
+                alert("我被点了")
+            }
+        }
+    });
+        </script>
+</body>
+</html>

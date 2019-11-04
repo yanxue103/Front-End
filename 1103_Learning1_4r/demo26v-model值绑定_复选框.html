@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p>请选择你的省份：</p>
+        <form action="a.html" method="get">
+            <input type="radio" name="sex" v-model="sex" v-bind:value="s1">女
+            <input type="radio" name="sex" v-model="sex" v-bind:value="s2">男
+            <input type="submit">
+        </form>   
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            sex:'',
+            s1:"nv",
+            s2:"nan"
+        }
+    });
+        </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+            <!-- 声明式渲染：你只需要告诉计算机你要把哪个数据显示在哪个地方 -->
+            <p>{{msg}}:{{name}}</p>
+            <span>{{msg}}:{{name}}</span>
+            <p>{{msg}}:{{name}}</p>
+        <input type="button" value="改变" v-on:click="change()">
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    //使用vue时要在两个地方写代码：
+    //html模板（外观）  、 js中vue对象里：要显示在模板里的直接数据（data属性），包括业务逻辑的处理（结果也是数据）
+    //解释：vuejs里的数据如何呈现在页面上是vue库要做的事情，我们只需要告诉vuejs库数据应该显示在哪里
+
+    //下一步：同时学习：
+    // 1、在html模板里都有哪些写法
+    // 2、在vue对象里都有哪些写法
+    </script>
+</body>
+</html>

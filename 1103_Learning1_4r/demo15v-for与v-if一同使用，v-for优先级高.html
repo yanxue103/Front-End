@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>您的代办事项：</h1>
+        <ul>
+            <li v-for="(todo,index) of todos" v-bind:key="todo" v-if="!todo.isComplete">
+                {{index+1}}、{{todo.content}}
+            </li>
+        </ul>
+        <input type="button" value="完成了一项" @click="change" >
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            todos:[
+                {
+                    content:'您有一个邮件需要回复',
+                    isComplete:false
+                },
+                {
+                    content:'您有个作业还没写',
+                    isComplete:false
+                },
+                {
+                    content:'您又一个好吃的还没有拆',
+                    isComplete:false
+                }
+            ]
+        },
+        methods:{
+            change:function (){
+                //这个可以感知到，因为这个并不是通过下标改变数组元素的值，而是改变isComplete的值
+                this.todos[1].isComplete = true;
+                
+                //如果下面这种写法就不行，因为他改变的是数组的元素
+                // this.todo[2]={
+                //     content:'你有个早点没有吃',
+                //     isComplete:true
+                // };
+                }
+        }
+    });
+        </script>
+</body>
+</html>

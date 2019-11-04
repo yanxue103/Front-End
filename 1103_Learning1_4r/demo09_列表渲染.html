@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <ul>
+                <li v-for="(book,index) of books">{{index+1}}、{{book}}</li>
+            </ul>
+            <button @click="change">添加</button>
+        </div>
+        <script src="js/vue.js"></script>
+        <script>
+
+            //v-if：控制元素显示和隐藏的思路，添加和删除元素，如果能频繁切换显示和隐藏，v-if性能低
+            //v-show：控制元素显示和隐藏的思路，使用display属性，频繁切换显示和隐藏，其性能高
+            //首次加载时，本就是隐藏的，则v-show效率低，元素照样得创建，v-if效率高
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                '三国演义',
+                '红楼梦',
+                '水浒传'
+            ]
+        },
+        methods:{
+            change:function (){
+                this.books.push("西游记");
+            }
+        }
+    });
+        </script>
+</body>
+</html>

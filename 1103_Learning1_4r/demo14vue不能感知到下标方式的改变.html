@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="book of books" v-bind:key="book">{{book}}</li>
+        </ul>
+        <input type="button" value="改变数组" @click="change" >
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                '三国演义',
+                '红楼梦',
+                '水浒传'
+            ]
+        },
+        methods:{
+            change:function (){
+                // this.books[1] = "西游记";// 用下标的方式改变数组的元素，vue感知不到
+                // vue.set(vm.books,1,"西游记");
+                this.books.splice(1,1,"西游记");//splice函数，vue能感知到
+            }
+        }
+    });
+        </script>
+</body>
+</html>

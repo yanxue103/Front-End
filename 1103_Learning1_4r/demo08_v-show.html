@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <h1 v-show="ok">v-show</h1>
+            <h1 v-if="show">v-if</h1>
+            <button v-on:click="change">gaibian</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+
+    //v-if：控制元素显示和隐藏的思路：每次操作都会添加和删除元素，如果频繁切换显示和隐藏，v-if性能低
+    //v-show：控制元素显示和隐藏的思路：每次开始时添加一次，后面使用display属性，频繁切换显示和隐藏时，其性能高
+    //首次加载时，如果本来就是不可见的，则v-if效率高，添加就完了，v-show就效率低一点，元素也照样得创建，
+    let vm = new Vue({
+        el:"#app",
+        data:{
+            show:false
+        },
+        methods:{
+            change:function (){
+                this.show = !this.show;
+            }
+        }
+    });
+    </script>
+</body>
+</html>

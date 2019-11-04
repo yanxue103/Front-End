@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="book of books" v-bind:key="book">{{book}}</li>
+        </ul>
+        <button @click="change" >改变数组</button>
+    </div>
+    <input type="button" value="给li增加一个自定义属性，表示li的序号" onclick="addIndex()">
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            books:[
+                '三国演义',
+                '红楼梦',
+                '水浒传'
+            ]
+        },
+        methods:{
+            change:function (){
+                this.books = [
+                '三国演义',
+                '水浒传',
+                '红楼梦'
+            ];
+            }
+        }
+    });
+    function addIndex(){
+        let liDoms = document.getElementById("app").firstElementChild.children;
+        for(let i=0;i<liDoms.length;i++)
+        {
+            liDoms[i].setAttribute("index",i);//setAttribute()函数是给dom元素增加自定义属性的
+        }   
+    }
+        </script>
+</body>
+</html>

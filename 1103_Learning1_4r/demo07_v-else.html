@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <p>{{"您的年龄"}}:{{age}}</p>
+            <h1 v-if="age<18">未成年</h1>
+            <h1 v-else-if="age<=120">已成年</h1>
+            <h1 v-else="age>120">已成仙</h1>
+            <button @click="change">gaibian</button>
+            <!-- @  与  v-on:  是等价的 -->
+        </div>
+        <script src="js/vue.js"></script>
+        <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                age:16
+            },
+            methods:{
+                change:function (){
+
+                    this.age++;
+                }
+            }
+        });
+        </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(value,key) of books">
+                {{key}}:{{value}}
+            </li>
+        </ul>
+        <button @click="change">添加</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        let vm = new Vue({
+        el:"#app",
+        data:{
+            books:{
+                name:'三国演义',
+                author:'罗贯中',
+                price:65
+            }
+        },
+        methods:{
+            change:function (){
+                this.books.push(
+                    {
+                    name:'西游记',
+                    author:'吴承恩',
+                    price:68
+                    }
+                );
+            }
+        }
+    });
+        </script>
+</body>
+</html>
