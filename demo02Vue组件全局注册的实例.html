@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <hr>
+        <my-person></my-person>
+    </div>
+
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+    // 1、定义
+    //1） Vue.extend('组件名',组件的代码)；
+    // 2） 简写
+   let myCom = {
+       data(){
+           return {
+               name:"哇哈哈"
+           }
+       },
+       template:`
+            <div>
+                <h1>呕吼</h1>
+                <p>{{name}}</p>
+            </dvi>
+       `
+   }
+
+    //2、注册
+        //1）全局注册(在项目中任何Vue对象中都可以使用该组件)
+
+        Vue.component('my-person',myCom);
+
+        //2）局部注册（注册在哪个Vue对象里就在哪个Vue对象中使用）
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                msg:"我是vue对象的内容"
+            }
+        });
+
+    //3、使用
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .slide-enter-active, .slide-leave-active {
+        transition: all 1s;
+     }
+    
+    .slide-enter,.slide-leave-to{/*元素进入起始的状态*/
+    transform: translateX(100px);
+        opacity: 0;
+    }
+    .slide-enter-to{/*元素进入完成后的状态*/
+    transform: translateX(0px);
+        opacity: 1;
+    }
+
+    .slide-leave{/*元素离开起始的状态*/
+    transform: translateX(0px);
+        opacity: 1;
+    }
+    .slide-leave-to {/*元素离开完成后的状态*/
+    transform: translateX(100px);
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="change" @click="show=!show" >
+        <transition name="slide">
+            <p v-if="show">我是p标签</p>
+        </transition>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        show:true
+    }
+});
+</script>

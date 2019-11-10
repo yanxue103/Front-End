@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <person name="wahaha" v-bind:age=20 ></person>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+//定义组件就是在定义自定义标签
+//定义组件
+let person = {
+    props:{
+        'name':{
+            type:String,
+            required:true
+        },
+        'age':{
+            type:Number,
+            default:10
+        }
+    },
+    data(){
+        return {
+            
+                
+        }
+    },
+    template:`
+        <div>
+            <p>{{name}}</p>
+            <p>{{age}}</p>
+        </div>
+    `
+}
+
+let vm = new Vue({
+    el:"#app",
+    components:{//局部注册
+        person:person
+    }
+});
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <goodslist type="文具"></goodslist>
+        <hr/>
+        <goodslist type="电子产品"></goodslist>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+//定义组件就是在定义自定义标签
+//定义组件
+let goodslist = {
+    props:['type'],//声明该组件的自定义属性（相当于函数的形参）
+    data(){
+        return {
+            goodslist:{
+                "文具":[
+                    {name:"铅笔",price:1.5},
+                    {name:"钢笔",price:25},
+                    {name:"毛笔",price:105}
+                ],
+                "电子产品":[
+                    {name:"手机",price:2500},
+                    {name:"平板",price:3000},
+                    {name:"电脑",price:10500}
+                ]
+            }
+                
+        }
+    },
+    computed:{
+        currGoodsList(){
+            return this.goodslist[this.type];
+        }
+    },
+    template:`
+        <div>
+            <h1>{{type}}列表</h1>
+            <ul>
+                <li v-for="goods in currGoodsList">
+                    <p>商品名称：{{goods.name}}</p>
+                    <p>商品价格：{{goods.price}}</p>
+                </li>
+            </ul>
+        </div>
+    `
+}
+
+let vm = new Vue({
+    el:"#app",
+    components:{//局部注册
+        goodslist:goodslist
+    }
+});
+</script>

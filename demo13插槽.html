@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>我是父组件</p>
+        <hr/>
+
+        <person>水水水水水水水水水水水水</person>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+
+let person={
+    props:['value'],
+    data(){
+        return {}
+    },
+    methods:{
+        myfunc(){
+            this.$emit("input",event.target.value);
+        }
+    },
+    template:`
+    <div>
+        <p><slot></slot></p>
+        <h1>我是子组件</h1>    
+        <p><slot></slot></p>
+        <p><slot></slot></p>
+        <p><slot></slot></p>
+        <p><slot></slot></p>
+    </div>
+    `
+}
+
+let vm = new Vue({
+    el:"#app",
+    data:{
+    },
+    methods:{
+        // fn2:(str){
+        //     this.val = str;
+        // }
+    },
+    components:{
+        person
+    }
+});
+</script>

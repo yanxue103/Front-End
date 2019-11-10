@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <person name="chen Sir" 
+        v-bind:age="age" 
+        v-bind:is-marry="isMarry" 
+        :books="books" 
+        :couple="couple" 
+        v-bind="address" 
+        ></person>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+//属性名不区分大小写，如果在组件内声明的属性名是驼峰命名法，那么在标签中使用时，用对应的短横线写法
+//props类型限制
+//prop的验证（类型验证，必填，默认值）
+
+let person = {
+    props:{
+        'name':{
+            type:String,
+            required:true
+        },
+        'age':{
+            type:Number,
+            default:25
+        },
+        isMarry:{
+            type:Boolean
+        },
+        books:{
+            type:Array
+        },
+        couple:{
+            type:Object
+        },
+        province:String,
+        city:String,
+    },
+    data(){
+        return {
+
+        }
+    },
+    template:`
+    <div>
+        <p>{{name}}</p>
+        <p>{{age}}</p>
+        <p>{{isMarry?"已婚":"未婚"}}</p>
+        <p>所阅读过的书籍：</p>
+        <ul>
+            <li v-for="book in books">{{book}}</li>
+        </ul>
+        <p>配偶：</p>
+        <ul>
+            <li v-for="(value,key) in couple">{{key+":"+value}}</li>
+        </ul>
+        <p>住址：</p>
+        <p>{{province}}{{city}}</p>
+        </div>
+    `
+}
+let vm = new Vue({
+    el:"#app",
+    data:{
+        age:21,
+        isMarry:true,
+        books:['钢铁是怎样炼成的','鲁滨逊漂流记','简爱'],
+        couple:{
+            name:"Agony",
+            age:21,
+            sex:"女"
+        },
+        address:{
+            province:"陕西",
+            city:"西安市"
+        }
+    },
+    components:{
+        person
+    }
+});
+</script>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 模板 -->
+    <div id="app">
+        <!-- <p>{{msg}}</p> -->
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        //数据
+    let vm = Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        }
+        //模板
+        template:`
+            <p>{{msg}}</p>
+        `
+    });
+
+
+    //vue对象就是vue组件，vue组件就是vue对象
+    //在vue框架里进行区分，为了未来的单页面应用，把vue组件单列出来
+
+    //封装组件和封装函数差不多，封装组件里面有html元素，而封装的函数里面没有html
+
+    //vue组件的基本使用步骤：
+
+    //1、定义vue组件
+    //1)、Vue.extend('组件名',组件的代码);
+    //2）、简写
+    // let 组件名= {
+        
+    // }
+    let myCom = {
+        data(){
+            return {
+                name:"张三疯"
+            }
+        },
+        template:``,
+        methods:{},
+        computed:{},
+    }
+
+    //2、注册vue组件
+    //1)、全局注册:(在项目中的任何Vue对象中都可以使用该组件)
+    Vue.component('标签名',组件名);
+    //2)、局部注册:(注册哪个Vue对象里，哪个Vue对象就能使用)
+    let vm = new Vue({
+        el:"#app",
+        components:{
+            标签名1:组件名1，
+            标签名2:组件名2
+        }
+    });
+
+    //3、使用组件
+    //使用组件跟使用标签是同样的道理。
+    <标签名></标签名>
+
+    </script>
+</body>
+</html>

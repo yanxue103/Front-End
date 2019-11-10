@@ -1,0 +1,67 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1">
+     <style>
+    
+    </style>
+ </head>
+ <body>
+    <div id="app">
+        <input type="button" @click="show=!show" >
+        <transition 
+            name="custom-classes-transition"
+            enter-active-class="animated fadeInDown"
+            leave-active-class="animated fadeOutDown"      
+            v-on:before-enter="beforeEnter"
+            v-on:enter="enter"
+            v-on:after-enter="afterEnter"    
+            v-on:before-leave="beforeLeave"
+            v-on:leave="leave"
+            v-on:after-leave="afterLeave"
+            >
+            <p v-if="show">我是p标签</p>
+        </transition>
+    </div>
+ </body>
+ </html>
+ <script src="js/vue.js"></script>
+ <script>
+
+
+ let vm = new Vue({
+     el:"#app",
+     data:{ 
+        show:true
+     },
+     methods:{
+         beforeEnter(el){
+             console.log("beforeEnter");
+             el.style.color="red";
+         },
+         enter(){
+             console.log("enter");
+         },
+         afterEnter(el){
+             console.log("afterEnter");
+             el.style.color="black";
+         },
+         beforeLeave(el){
+             console.log("beforeLeave");
+             el.style.color="red";
+         },
+         leave(){
+             console.log("leave");
+         },
+         afterLeave(el){
+             console.log("afterLeave");
+             el.style.color="black";
+         },
+     }
+ });
+
+ </script>

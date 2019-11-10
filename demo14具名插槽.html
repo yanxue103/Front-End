@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>我是父组件</p>
+        <hr/>
+
+        <person>
+            <template v-slot:defalut>我是默认的</template>
+            <template v-slot:head>我是头部</template>
+            <template v-slot:center>我是中间部分</template>
+            <template v-slot:footer>我是尾部</template>
+        </person>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+
+let person={
+    props:['value'],
+    data(){
+        return {}
+    },
+    methods:{
+        myfunc(){
+            this.$emit("input",event.target.value);
+        }
+    },
+    template:`
+    <div>
+        <p><slot></slot></p>
+        <h1>我是子组件</h1>    
+        <p><slot name="head"></slot></p>
+        <p><slot name="center"></slot></p>
+        <p><slot name="footer"></slot></p>
+    </div>
+    `
+}
+
+let vm = new Vue({
+    el:"#app",
+    data:{
+    },
+    components:{
+        person
+    }
+});
+</script>

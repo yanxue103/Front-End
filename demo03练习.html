@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>name:{{name}}</p>
+        <infors></infors>
+    </div>
+    <hr>
+    <div id="app02">
+        <p>name:{{name}}</p>
+        <infors></infors>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let infor = {
+    data(){
+        return {
+            name:"xueyan",
+            emil:"yanxue1033@163.com"
+        }
+    },
+    template:`
+        <div>
+            <p>{{name}}</p>
+            <p>{{emil}}</p>
+        </div>
+    `
+}
+Vue.component("infors",infor);   //全局注册
+let vm = new Vue({
+    el:"#app",
+    data:{
+        name:"哇哈哈"
+    },
+    components:{//局部注册
+        "infors":infor
+    }
+});
+let vm02 = new Vue({
+    el:"#app02",
+    data:{
+        name:"哇哈哈02"
+    },
+    components:{//局部注册
+        "infors":infor
+    }
+});
+</script>
