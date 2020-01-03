@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>cuteX Play</title>
+    <style>
+        body{
+            margin: 0;
+            background-image: url("images/page-bg.jpg");
+        }
+    .player{
+        width: 653px;
+        height: 653px;
+        background-color: ;
+        margin: 0 auto;
+        background-image: url("images/bg_circle.png"),url("images/bg_center.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;/*开启弹性盒模型，只在父元素里面实现效果，对子元素进行弹性放置*/
+        justify-content: center;  /*在主轴居中*/
+        align-items: center;/*在交叉轴居中*/
+    }
+    .btn{
+        width: 94px;
+        height: 94px;
+        background-image: url("images/btn-bg.png");
+        display: flex;/*开启弹性盒模型，只在父元素里面实现效果，对子元素进行弹性放置*/
+        justify-content: center;  /*在主轴居中*/
+        align-items: center;/*在交叉轴居中*/
+    }
+    .btn-play{
+        width: 29px;
+        height: 29px;
+        background-image: url("images/pause-2.png");
+    }
+    </style>
+
+</head>
+<body><!--可视化区域-->
+    <!-- 在网页内容中间划分一个矩形区域/盒子模型 -->
+    <div class="player">
+        <div class="btn">
+            <div class="btn-play">
+                <audio src="audio/music.mp3" id="audio"></audio>
+            </div>
+        </div>
+    </div>
+    <script>
+        /*
+            需求分析：
+            1.获取到音频和按钮
+            2.点击按钮，暂停和播放状态进行互相切换切换，图片进行改变
+        */
+        var oBtn = document.querySelector(".btn-play");
+        var oAudio = document.querySelector("#audio");
+        // var oBtn = document.getElementsByClassName("btn-play")[0];
+        // var oAudio = document.getElementById("#audio");
+        oBtn.onclick = function (){
+            // alert("hello world");
+            if(oAudio.paused){
+                oAudio.play();
+                oBtn.style.backgroundImage = "url(images/play-1.png)";
+            }else{
+                oAudio.pause();
+                oBtn.style.backgroundImage = "url(images/pause-2.png)";
+            }
+        };
+    </script>
+</body>
+</html>
